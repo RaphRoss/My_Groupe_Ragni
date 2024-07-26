@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../css/index_styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Groupe Ragni</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script src="../components/header.js" type="text/javascript" defer></script>
+    <script src="../components/footer.js" type="text/javascript" defer></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header-component></header-component>
+      
+    <!-- Carrousel -->
+    <div class="carousel">
+      <div class="slides">
+        <a href="../doc/b2b.html"><img src="../img/B2B.png" alt="Image 1"></a>
+        <a href="../doc/my_ragni.html"><img src="../img/MyRagni.png" alt="Image 2"></a>
+        <a href="../doc/config.html"><img src="../img/configurateur.png" alt="Image 3"></a>
+      </div>
+      <div class="navigation">
+      <button class="prev">❮</button>
+      <button class="next">❯</button>
+      </div>
+    </div>
+  
+    <script>
+      const slides = document.querySelector('.slides');
+      const images = slides.querySelectorAll('img');
+      const prevButton = document.querySelector('.prev');
+      const nextButton = document.querySelector('.next');
+      let index = 0;
+
+      function showSlide(index) {
+        const slideWidth = images[index].clientWidth;
+        slides.style.transform = `translateX(${-index * slideWidth}px)`;
+      }
+          
+      function nextSlide() {
+        index = (index + 1) % images.length;
+        showSlide(index);
+      }
+          
+      function prevSlide() {
+        index = (index - 1 + images.length) % images.length;
+        showSlide(index);
+      }
+      
+      nextButton.addEventListener('click', nextSlide);
+      prevButton.addEventListener('click', prevSlide);
+      
+      setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    </script>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
+  </body>
+</html>

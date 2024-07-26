@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="../css/b2b_styles.css" rel="stylesheet" type="text/css" />
+      <script src="../components/header.js" type="text/javascript" defer></script>
+      <script src="../components/footer.js" type="text/javascript" defer></script>
+      <title>B2B</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <header-component></header-component>
+
+        <!-- Content -->
+        <div class="header">
+            <h1>Bienvenue sur notre application B2B</h1>
+            <p>Vous êtes un professionnel et vous souhaitez passer une commande ? Vous êtes au bon endroit !</p>
+        </div>
+
+        <div class="menu_deroulant_conteneur">
+            <div class="menu">
+                <button>Menu</button>
+                <div class="menu_contenu">
+                    <a href="#">Création d'affaire</a>
+                    <a href="#">Demande de couverture SEVe</a>
+                    <a href="#">Demande étude info/meca/photo</a>
+                    <a href="#">Demande NOVEA</a>
+                    <div class="menu">
+                        <a href="#">Devis</a>
+                        <div class="menu_contenu_niveau2">
+                            <a href="#">Création devis</a>
+                            <div class="menu">
+                                <a href="#">Liste des devis</a>
+                                <div class="menu_contenu_niveau3">
+                                    <a href="#">Devis n°1</a>
+                                    <a href="#">Devis n°2</a>
+                                    <a href="#">Devis n°3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu">
+                <button>Vos Commandes</button>
+                <div class="menu_contenu">
+                    <div class="menu">
+                        <a href="#">Commandes en attente</a>
+                        <div class="menu_contenu_niveau2">
+                            <a href="#">Commande n°1</a>
+                            <a href="#">Commande n°2</a>
+                            <a href="#">Commande n°3</a>
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <a href="#">Commandes en cours</a>
+                        <div class="menu_contenu_niveau2">
+                            <a href="#">Commande n°1</a>
+                            <a href="#">Commande n°2</a>
+                            <a href="#">Commande n°3</a>
+                        </div>
+                    </div>
+                    <div class="menu">
+                        <a href="#">Commandes terminées</a>
+                        <div class="menu_contenu_niveau2">
+                            <a href="#">Commande n°1</a>
+                            <a href="#">Commande n°2</a>
+                            <a href="#">Commande n°3</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="case case_suivi_commande">
+                <h2>Suivi de Commande</h2>
+                <p>Liste des commandes :</p>
+                <ul>
+                    <li>Commande n°1 - Statut : En attente</li>
+                    <li>Commande n°2 - Statut : En cours</li>
+                    <li>Commande n°3 - Statut : Terminée</li>
+                </ul>
+                <p>Détails de la commande sélectionnée :</p>
+                <p>Commande n°2 : Produit X, Quantité : 5, Date de livraison prévue : 30/07/2024</p>
+            </div>
+            <div class="case case_graphique">
+                <h2>Graphique</h2>
+                <img src="../img/graph.png" alt="Graphique de retour sur investissement des tests automatisés" style="width:100%;">
+                <p>Ce graphique montre le coût total des tests manuels par rapport aux tests automatisés. On peut observer que le coût des tests automatisés devient inférieur à celui des tests manuels à partir d'un certain point, indiquant un retour sur investissement positif pour l'automatisation des tests.</p>
+            </div>
+            <div class="case case_autre1">
+                <h2>Autre Section 1</h2>
+                <p>Contenu de l'autre section 1...</p>
+            </div>
+            <div class="case case_autre2">
+                <h2>Autre Section 2</h2>
+                <p>Contenu de l'autre section 2...</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer-component></footer-component>
+    </body>
+</html>
