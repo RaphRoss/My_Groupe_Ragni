@@ -10,25 +10,24 @@ footerTemplate.innerHTML = `
         <footer>
             <div class="unique-footer-container">
                 <div class="unique-footer-social">
-                    <h3>Réseaux sociaux</h3>
+                    <h3>Le Groupe Ragni</h3>
                     <ul class="unique-social-liste">
-                        <li><a href="https://www.facebook.com/Ragni.SAS/"><img src="../img/facebook.png" alt="Facebook"><p>Facebook</p></a></li>
-                        <li><a href="https://www.instagram.com/ragni_sas/"><img src="../img/instagram.png" alt="Instagram"><p>Instagram</p></a></li>
-                        <li><a href="https://x.com/RAGNI_SAS"><img src="../img/twitter.png" alt="Twitter"><p>Twitter</p></a></li>
-                        <li><a href="https://www.linkedin.com/company/10460980/"><img src="../img/linkedin.png" alt="Linkedin"><p>Linkedin</p></a></li>
-                        <li><a href="https://www.youtube.com/channel/UCg3LCUI39GyNBcrdS9QV9LA"><img src="../img/youtube.png" alt="Youtube"><p>Youtube</p></a></li>
+                        <li><a href="https://www.ragni.com/"><img src="../img/Mini_logo_Ragni.png" alt="Ragni"><p>Ragni</p></a></li>
+                        <li><a href="https://www.hess.eu/fr/"><img src="../img/Mini_logo_Hess.png" alt="Hess"><p>Hess</p></a></li>
+                        <li><a href="https://www.novea-energies.com/"><img src="../img/Mini_logo_Novea.png" alt="Novea"><p>Novea</p></a></li>
+                        <li><a href="https://sev-e.com/"><img src="../img/Mini_logo_Seve.png" alt="Seve"><p>Seve</p></a></li>
+                        <li><a href="https://www.vulkan.eu/en/"><img src="../img/Mini_logo_Vulkan.png" alt="Vulkan"><p>Vulkan</p></a></li>
                     </ul>
                 </div>
                 <div class="unique-footer-application">
                     <h3>Nos Applications</h3>
                     <ul class="unique-applications-liste">
                         <li><a href="b2b.html">B2B</a></li>
-                        <li><a href="config.html">Configurateur</a></li>
-                        <li><a href="my_ragni.html">My_Ragni</a></li>
+                        <li><a href="config.html">Configurateurs groupe</a></li>
+                        <li><a href="#">Export de Données Produits</a></li>
+                        <li><a href="#">Suivi de production</a></li>
                         <li><a href="#">My_Novea</a></li>
-                        <li><a href="#">ROI</a></li>
-                        <li><a href="#">Export de Donnée Produit</a></li>
-                        <li><a href="#">SSE</a></li>
+                        <li><a href="#">ROI groupe</a></li>
                         <li><a href="#">Gestion SAV</a></li>
                     </ul>
                 </div>

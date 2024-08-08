@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="anonymous" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/affaire_styles.css" rel="stylesheet" type="text/css" />
+  <script src="../components/header.js" type="text/javascript" defer></script>
+  <script src="../components/footer.js" type="text/javascript" defer></script>
+  <script src="../components/affaire.js" type="text/javascript" defer></script>
+  <title>Création d'Affaire</title>
+</head>
+<body>
+  <!-- Header -->
+  <header-component></header-component>
+
+  <!-- Content -->
+  <div class="header">
+    <h1>Création d'Affaire</h1>
+    <p>Remplissez le formulaire ci-dessous pour créer une nouvelle affaire.</p>
+  </div>
+
+  <div class="form-container">
+    <form>
+      <div class="form-group">
+        <label for="nom_affaire">Nom de l'affaire:</label>
+        <input type="text" id="nom_affaire" name="nom_affaire" required>
+      </div>
+      <div class="form-group">
+        <label for="ville">Ville:</label>
+        <input type="text" id="ville" name="ville" required>
+      </div>
+      <div class="form-group">
+        <label for="pays">Pays:</label>
+        <input type="text" id="pays" name="pays" required>
+      </div>
+      <div class="form-group">
+        <label for="budget_estime">Montant/Budget Estimé:</label>
+        <input type="number" id="budget_estime" name="budget_estime" required>
+      </div>
+      <div class="form-group">
+        <label for="date_realisation">Date Estimée de Réalisation:</label>
+        <input type="date" id="date_realisation" name="date_realisation" required>
+      </div>
+      <button type="submit">Créer Affaire</button>
+    </form>
+  </div>
+
+  <div class="actions-container">
+    <h2>Actions</h2>
+    <a href="devis.html"><button>Créer un Devis</button></a>
+    <button>Demande d'étude d'éclairement</button>
+    <button>Demande de faisabilité et méca</button>
+    <button>Demande d'infographie</button>
+    <button>Demande myNovea</button>
+    <button>Demande SEve</button>
+    <button>Suivi des commandes</button>
+  </div>
+
+  <div class="devis-list-container">
+    <h2>Liste des Devis</h2>
+    <ul id="devis-list">
+      <!-- Les devis seront affichés ici -->
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer-component></footer-component>
+
+  <script>
+    // Charger les devis depuis le stockage local et les afficher
+    document.addEventListener('DOMContentLoaded', function() {
+        const devisList = JSON.parse(localStorage.getItem('devisList')) || [];
+        const devisListContainer = document.getElementById('devis-list');
+        devisList.forEach(devis => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Devis de ${devis.name} ${devis.surname} - Ville: ${devis.city} - Date de Livraison: ${devis.dateLivraison}`;
+            devisListContainer.appendChild(listItem);
+        });
+    });
+  </script>
+</body>
+</html>

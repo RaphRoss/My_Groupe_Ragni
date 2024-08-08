@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="../css/config_styles.css" rel="stylesheet" type="text/css" />
     <script src="../components/header.js" type="text/javascript" defer></script>
     <script src="../components/footer.js" type="text/javascript" defer></script>
-    <title>Configurateur</title>
+    <title>Configurateurs groupe</title>
 </head>
 <body>
     <!-- Header -->
@@ -16,15 +17,110 @@
     
     <!-- Main content -->
     <main>
-        <h1>Bienvenue sur le Configurateur</h1>
-        <section>
-            <h2>Personnalisez votre produit !</h2>
-            <p>Utilisez notre configurateur pour personnaliser votre produit selon vos préférences.</p>
-            <p>Choisissez parmi une des marques pour créer un produit unique qui répond à vos besoins !</p>
+        <h1>Bienvenue sur les Configurateurs</h1>
+        <section id="initial-selection">
+            <h2>Choisissez ce que vous souhaitez configurer</h2>
+            <button onclick="showOptions('ensemble', 'Choisissez un ensemble')">Ensemble</button>
+            <button onclick="showOptions('composant', 'Choisissez votre marque')">Composant</button>
+        </section>
+
+        <section id="ensemble-options" style="display:none;">
+            <h2>Choisissez un ensemble</h2>
+            <button onclick="showOptions('config-luminaire', 'Configuration Luminaire')">Configuration luminaire</button>
+            <button onclick="showOptions('config-korner', 'Configuration Korner')">Configuration Korner</button>
+        </section>
+
+        <section id="composant-options" style="display:none;">
+            <h2>Choisissez un composant</h2>
+            <div class="brands">
+                <img src="../img/logo_Ragni.png" alt="Marque 1" onclick="selectBrand('Ragni')">
+                <img src="../img/logo_Hess.png" alt="Marque 2" onclick="selectBrand('Hess')">
+                <img src="../img/logo_Novea.png" alt="Marque 3" onclick="selectBrand('Novea')">
+                <img src="../img/logo_Seve.png" alt="Marque 4" onclick="selectBrand('Seve')">
+                <img src="../img/logo_Vulkan.png" alt="Marque 5" onclick="selectBrand('Vulkan')">
+            </div>
+        </section>
+
+        <section id="config-luminaire-options" style="display:none;">
+            <h2>Configuration Luminaire</h2>
+            <button onclick="showOptions('config-console', 'Choisissez votre marque')">Configuration console</button>
+            <button onclick="showOptions('config-mat', 'Choisissez votre marque')">Configuration mât</button>
+            <button onclick="showOptions('accessoire', 'Choisissez votre marque')">Ajouter accessoire</button>
+        </section>
+
+        <section id="config-console-options" style="display:none;">
+            <h2>Configuration Console</h2>
+            <div class="brands">
+                <img src="../img/logo_Ragni.png" alt="Marque 1" onclick="selectBrand('Ragni')">
+                <img src="../img/logo_Hess.png" alt="Marque 2" onclick="selectBrand('Hess')">
+                <img src="../img/logo_Novea.png" alt="Marque 3" onclick="selectBrand('Novea')">
+                <img src="../img/logo_Seve.png" alt="Marque 4" onclick="selectBrand('Seve')">
+                <img src="../img/logo_Vulkan.png" alt="Marque 5" onclick="selectBrand('Vulkan')">
+            </div>
+        </section>
+
+        <section id="config-mat-options" style="display:none;">
+            <h2>Configuration Mat</h2>
+            <div class="brands">
+                <img src="../img/logo_Ragni.png" alt="Marque 1" onclick="selectBrand('Ragni')">
+                <img src="../img/logo_Hess.png" alt="Marque 2" onclick="selectBrand('Hess')">
+                <img src="../img/logo_Novea.png" alt="Marque 3" onclick="selectBrand('Novea')">
+                <img src="../img/logo_Seve.png" alt="Marque 4" onclick="selectBrand('Seve')">
+                <img src="../img/logo_Vulkan.png" alt="Marque 5" onclick="selectBrand('Vulkan')">
+            </div>
+        </section>
+
+        <section id="accessoire-options" style="display:none;">
+            <h2>Accessoire</h2>
+            <div class="brands">
+                <img src="../img/logo_Ragni.png" alt="Marque 1" onclick="selectBrand('Ragni')">
+                <img src="../img/logo_Hess.png" alt="Marque 2" onclick="selectBrand('Hess')">
+                <img src="../img/logo_Novea.png" alt="Marque 3" onclick="selectBrand('Novea')">
+                <img src="../img/logo_Seve.png" alt="Marque 4" onclick="selectBrand('Seve')">
+                <img src="../img/logo_Vulkan.png" alt="Marque 5" onclick="selectBrand('Vulkan')">
+            </div>
         </section>
     </main>
+    <button class="back-btn" id="back-btn" style="display:none;" onclick="goBack()">Retour</button>
 
     <!-- Footer -->
     <footer-component></footer-component>
+
+    <script>
+        function showOptions(section, title) {
+            const sections = [
+                'initial-selection', 'ensemble-options', 'composant-options',
+                'config-luminaire-options', 'config-console-options',
+                'config-mat-options', 'accessoire-options'
+            ];
+
+            sections.forEach(sec => {
+                document.getElementById(sec).style.display = 'none';
+            });
+
+            document.getElementById(`${section}-options`).style.display = 'block';
+            document.getElementById(`${section}-options`).querySelector('h2').textContent = title;
+            document.getElementById('back-btn').style.display = 'block';
+        }
+
+        function goBack() {
+            const sections = [
+                'initial-selection', 'ensemble-options', 'composant-options',
+                'config-luminaire-options', 'config-console-options',
+                'config-mat-options', 'accessoire-options'
+            ];
+
+            sections.forEach(sec => {
+                document.getElementById(sec).style.display = 'none';
+            });
+
+            document.getElementById('initial-selection').style.display = 'block';
+            document.getElementById('back-btn').style.display = 'none';
+        }
+
+        function selectBrand(brand) {
+            alert('Vous avez sélectionné la marque : ' + brand);
+        }
+    </script>
 </body>
 </html>
