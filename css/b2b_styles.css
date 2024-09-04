@@ -1,0 +1,144 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(90deg, #1a77c4, #000000);
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
+    color: white;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.header p {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+.menu button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.menu button:hover {
+    background-color: #575757;
+}
+
+.menu_contenu, .menu_contenu_niveau2, .menu_contenu_niveau3 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu_contenu a, .menu_contenu_niveau2 a, .menu_contenu_niveau3 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.menu_contenu a:hover, .menu_contenu_niveau2 a:hover, .menu_contenu_niveau3 a:hover {
+    background-color: #f1f1f1;
+}
+
+.menu:hover .menu_contenu {
+    display: block;
+}
+
+.menu_contenu a:hover + .menu_contenu_niveau2 {
+    display: block;
+}
+
+.menu_contenu_niveau2 a:hover + .menu_contenu_niveau3 {
+    display: block;
+}
+
+.menu_contenu_niveau2 {
+    left: 100%;
+    top: 0;
+}
+
+.menu_contenu_niveau3 {
+    left: 100%;
+    top: 0;
+}
+
+.menu_contenu_niveau2:hover,
+.menu_contenu_niveau3:hover {
+    display: block;
+}
+
+.menu_deroulant_conteneur {
+    display: flex;
+    background-color: #333;
+    justify-content: center;
+    padding: 10px;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.case {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.case:hover {
+    transform: translateY(-5px);
+}
+
+.case h2 {
+    margin-top: 0;
+    color: #1a77c4;
+}
+
+.case_suivi_commande {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.case_graphique {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.case_autre1 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.case_autre2 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}

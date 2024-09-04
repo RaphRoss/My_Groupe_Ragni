@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/affaire_styles.css" rel="stylesheet" type="text/css" />
+  <script src="components/header.js" type="text/javascript" defer></script>
+  <script src="components/footer.js" type="text/javascript" defer></script>
+  <title>Création d'Affaire</title>
+</head>
+<body>
+  <!-- Header -->
+  <header-component></header-component>
+
+  <!-- Content -->
+  <div class="header">
+    <h1>Création d'Affaire</h1>
+  </div>
+
+  <div class="form-container">
+    <form id="affaireForm" action="/creer_devis.html" method="POST">
+      <label for="nom_affaire">Nom de l’affaire</label>
+      <input type="text" id="nom_affaire" name="nom_affaire" required>
+
+      <label for="ville">Ville</label>
+      <input type="text" id="ville" name="ville" required>
+
+      <label for="pays">Pays</label>
+      <input type="text" id="pays" name="pays" required>
+
+      <label for="budget">Montant/budget Estimé</label>
+      <input type="number" id="budget" name="budget">
+
+      <label for="date_realisation">Date estimée de réalisation</label>
+      <input type="date" id="date_realisation" name="date_realisation">
+
+      <div class="buttons">
+        <a href="devis.html"><button type="button">Création d’un devis</button></a>
+        <a href="#"><button type="button">Demande d’étude d’éclairement</button></a>
+        <a href="#"><button type="button">Demande de faisabilité et méca</button></a>
+        <a href="#"><button type="button">Demande d’infographie</button></a>
+        <a href="#"><button type="button">Demande MyNovea</button></a>
+        <a href="#"><button type="button">Demande SEve</button></a>
+        <button type="button" onclick="creerAffaire()">Créer une affaire</button>
+      </div>
+    </form>
+
+    <div class="devis-list">
+      <h2>Liste des Devis</h2>
+      <ul>
+        <li>
+            Devis 1 - Projet Exemple1
+        </li>
+        <li>
+            Devis 2 - Projet Exemple2
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer-component></footer-component>
+
+  <script>
+    function creerAffaire() {
+      const nomAffaire = document.getElementById('nom_affaire').value;
+      const ville = document.getElementById('ville').value;
+      const pays = document.getElementById('pays').value;
+      const budget = document.getElementById('budget').value;
+      const dateRealisation = document.getElementById('date_realisation').value;
+
+      if (nomAffaire && ville && pays && budget && dateRealisation) {
+        alert('Vous avez créé une affaire');
+      } else {
+        alert('Veuillez remplir tous les champs requis avant de créer une affaire.');
+      }
+    }
+  </script>
+</body>
+</html>

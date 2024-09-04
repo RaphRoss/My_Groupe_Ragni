@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Gestion SAV</title>
+    <link rel="stylesheet" href="css/SAV_styles.css">
+    <script src="components/header.js" type="text/javascript" defer></script>
+    <script src="components/footer.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header-component></header-component>
+
+    <!-- Titre centré -->
+    <h1 class="page-title">Gestion SAV</h1>
+
+    <div class="dashboard">
+        <!-- Dashboard Central -->
+        <div class="dashboard-central">
+            <!-- Ajout des boutons ici -->
+            <div class="dashboard-buttons">
+                <a href="#" class="btn">Analyser</a>
+                <a href="nouveau_sav.html" class="btn">Déclarer</a>
+            </div>
+            <div class="filter-zone">
+                <label>Zone de filtrage:</label>
+                <input type="text" placeholder="Filtrer par...">
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>N° de ticket</th>
+                        <th>Agence</th>
+                        <th>Date</th>
+                        <th>Statut</th>
+                        <th>Suivi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Ticket Example 1 -->
+                    <tr onclick="showDetails('1')">
+                        <td>#001</td>
+                        <td>Paris</td>
+                        <td>01/09/2024</td>
+                        <td>Terminé</td>
+                        <td>Enquête envoyée</td>
+                    </tr>
+                    <tr id="details-1" class="details">
+                        <td colspan="5">
+                            <p><strong>N° de ticket:</strong> #001</p>
+                            <p><strong>Date:</strong> 01/09/2024</p>
+                            <p><strong>Agence:</strong> Paris</p>
+                            <p><strong>Problème:</strong> Délai de livraison</p>
+                            <p><strong>Suivi:</strong> Enquête envoyée</p>
+                            <a href="#" class="btn">Déclencher une Enquête</a>
+                            <a href="#" class="btn">Réalisée</a>
+                        </td>
+                    </tr>
+                    <!-- Ticket Example 2 -->
+                    <tr onclick="showDetails('2')">
+                        <td>#002</td>
+                        <td>Lyon</td>
+                        <td>02/09/2024</td>
+                        <td>En cours</td>
+                        <td>Suivi initial</td>
+                    </tr>
+                    <tr id="details-2" class="details">
+                        <td colspan="5">
+                            <p><strong>N° de ticket:</strong> #002</p>
+                            <p><strong>Date:</strong> 02/09/2024</p>
+                            <p><strong>Agence:</strong> Lyon</p>
+                            <p><strong>Problème:</strong> Produit défectueux</p>
+                            <p><strong>Suivi:</strong> Suivi initial</p>
+                            <a href="#" class="btn">Réalisée</a>
+                        </td>
+                    </tr>
+                    <!-- Ticket Example 3 -->
+                    <tr onclick="showDetails('3')">
+                        <td>#003</td>
+                        <td>Marseille</td>
+                        <td>03/09/2024</td>
+                        <td>Terminé</td>
+                        <td>Enquête non envoyée</td>
+                    </tr>
+                    <tr id="details-3" class="details">
+                        <td colspan="5">
+                            <p><strong>N° de ticket:</strong> #003</p>
+                            <p><strong>Date:</strong> 03/09/2024</p>
+                            <p><strong>Agence:</strong> Marseille</p>
+                            <p><strong>Problème:</strong> Erreur de facturation</p>
+                            <p><strong>Suivi:</strong> Enquête non envoyée</p>
+                            <a href="#" class="btn">Déclencher une Enquête</a>
+                            <a href="#" class="btn">Réalisée</a>
+                        </td>
+                    </tr>
+                    <!-- Ticket Example 4 -->
+                    <tr onclick="showDetails('4')">
+                        <td>#004</td>
+                        <td>Bordeaux</td>
+                        <td>04/09/2024</td>
+                        <td>En cours</td>
+                        <td>Attente client</td>
+                    </tr>
+                    <tr id="details-4" class="details">
+                        <td colspan="5">
+                            <p><strong>N° de ticket:</strong> #004</p>
+                            <p><strong>Date:</strong> 04/09/2024</p>
+                            <p><strong>Agence:</strong> Bordeaux</p>
+                            <p><strong>Problème:</strong> Retard de livraison</p>
+                            <p><strong>Suivi:</strong> Attente client</p>
+                            <a href="#" class="btn">Réalisée</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+    function showDetails(ticketId) {
+        var details = document.getElementById('details-' + ticketId);
+        var allDetails = document.querySelectorAll('.details');
+        allDetails.forEach(detail => detail.style.display = 'none');
+        details.style.display = 'block';
+    }
+    </script>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
+</body>
+</html>
