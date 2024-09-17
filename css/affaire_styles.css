@@ -8,9 +8,6 @@ body {
 .header {
     text-align: center;
     padding: 40px 20px;
-    background: linear-gradient(90deg, #1a77c4, #000000);
-    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%);
-    color: white;
 }
 
 .header h1 {

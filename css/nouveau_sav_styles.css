@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.form-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 40px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur totale */
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #263C47;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur totale */
+    font-size: 16px;
+    color: #333;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur totale */
+}
+
+.btn:hover {
+    background-color: #263C47;
+    transform: translateY(-2px);
+}
+
+.btn:focus {
+    outline: none;
+}

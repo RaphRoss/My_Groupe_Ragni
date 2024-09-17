@@ -17,21 +17,25 @@
 
     <!-- Titre centré -->
     <h1 class="page-title">Gestion SAV</h1>
+    <p class="page-description">Suivi et gestion des tickets de service après-vente. Utilisez les filtres pour rechercher des tickets spécifiques et obtenir des détails sur chaque demande.</p>
 
     <div class="dashboard">
         <!-- Dashboard Central -->
         <div class="dashboard-central">
-            <!-- Ajout des boutons ici -->
-            <div class="dashboard-buttons">
-                <a href="#" class="btn">Analyser</a>
-                <a href="nouveau_sav.html" class="btn">Déclarer</a>
-            </div>
-            <div class="filter-zone">
-                <label>Zone de filtrage:</label>
-                <input type="text" placeholder="Filtrer par...">
+            <!-- Ajout des boutons et du champ de filtrage ici -->
+            <div class="filter-buttons-container">
+                <div class="filter-zone">
+                    <label>Filtrer:</label>
+                    <!-- Ajout de l'ID filterInput et de l'événement oninput -->
+                    <input type="text" id="filterInput" placeholder="Filtrer par..." oninput="filterTable()">
+                </div>
+                <div class="dashboard-buttons">
+                    <a href="#" class="btn">Analyser</a>
+                    <a href="nouveau_sav.html" class="btn">Déclarer</a>
+                </div>
             </div>
 
-            <table>
+            <table id="dataTable">
                 <thead>
                     <tr>
                         <th>N° de ticket</th>
@@ -42,7 +46,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Ticket Example 1 -->
+                    <!-- Tickets ici -->
                     <tr onclick="showDetails('1')">
                         <td>#001</td>
                         <td>Paris</td>
@@ -127,6 +131,26 @@
         var allDetails = document.querySelectorAll('.details');
         allDetails.forEach(detail => detail.style.display = 'none');
         details.style.display = 'block';
+    }
+
+    function filterTable() {
+        const input = document.getElementById("filterInput");
+        const filter = input.value.toUpperCase();
+        const table = document.getElementById("dataTable");
+        const rows = table.querySelectorAll("tbody tr");
+
+        rows.forEach(row => {
+            const cells = row.getElementsByTagName("td");
+            let textContent = "";
+            for (let i = 0; i < cells.length; i++) {
+                textContent += cells[i].textContent || cells[i].innerText;
+            }
+            if (textContent.toUpperCase().indexOf(filter) > -1) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
     }
     </script>
 

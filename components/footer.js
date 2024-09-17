@@ -12,11 +12,11 @@ footerTemplate.innerHTML = `
                 <div class="unique-footer-social">
                     <h3>Le Groupe Ragni</h3>
                     <ul class="unique-social-liste">
-                        <li><a href="https://www.ragni.com/"><img src="img/Mini_logo_Ragni.png" alt="Ragni"><p>Ragni</p></a></li>
-                        <li><a href="https://www.hess.eu/fr/"><img src="img/Mini_logo_Hess.png" alt="Hess"><p>Hess</p></a></li>
-                        <li><a href="https://www.novea-energies.com/"><img src="img/Mini_logo_Novea.png" alt="Novea énergies"><p>Novea</p></a></li>
-                        <li><a href="https://sev-e.com/"><img src="img/Mini_logo_Seve.png" alt="Seve"><p>Seve</p></a></li>
-                        <li><a href="https://www.vulkan.eu/en/"><img src="img/Mini_logo_Vulkan.png" alt="Vulkan"><p>Vulkan</p></a></li>
+                        <li><a href="https://www.ragni.com/"><img src="img/06_2023Logo_Ragni_large_texte-blanc_RVB.png" alt="Ragni"></a></li>
+                        <li><a href="https://www.hess.eu/fr/"><img src="img/06_2024Logo_Hess_large_texte-blanc_RVB.png" alt="Hess"></a></li>
+                        <li><a href="https://www.novea-energies.com/"><img src="img/06_2023Logo_Novea_large_texte-blanc_RVB.png" alt="Novea énergies"></a></li>
+                        <li><a href="https://sev-e.com/"><img src="img/06_2023Logo_SEVe_large_texte-blanc_RVB.png" alt="Seve"></li>
+                        <li><a href="https://www.vulkan.eu/en/"><img src="img/06_2024Logo_Vulkan_large_texte-blanc_RVB.png" alt="Vulkan"></a></li>
                     </ul>
                 </div>
                 <div class="unique-footer-application">
@@ -26,7 +26,7 @@ footerTemplate.innerHTML = `
                         <li><a href="config.html">Configurateurs groupe</a></li>
                         <li><a href="#">Export de Données Produits</a></li>
                         <li><a href="https://www.mynovea.com/">My_Novea</a></li>
-                        <li><a href="#">ROI groupe</a></li>
+                        <li><a href="ROI.html">ROI groupe</a></li>
                         <li><a href="SAV.html">Gestion SAV</a></li>
                     </ul>
                 </div>
@@ -35,11 +35,16 @@ footerTemplate.innerHTML = `
                     <ul class="unique-contact-liste">
                         <li><a href="https://groupe-ragni.cockpit-itsm.com/ssp/home">Contactez-nous</a></li>
                         <li><p>Via nos tickets cockpit vous pouvez nous contacter ou faire n'importe quelle demande, elle sera prise en charge le plus rapidement possible.</p></li>
+                        <li><p>Changer le mode de vue :</p></li>
+                        <li><a href="#">Salarié</a></li>
+                        <li><a href="#">Agent</a></li>
+                        <li><a href="#">Admin</a></li>
                     </ul>
                 </div>
             </div>
+            <div class="gradient-image"></div>
             <div class="unique-footer-bottom">
-                © 2024 RAGNI. Tous droits réservés.
+                © 2024 RAGNI. Tous droits réservés. | Version 1.3.0 12/09/2024
             </div>
         </footer>
     </div>

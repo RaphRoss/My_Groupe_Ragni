@@ -1,0 +1,243 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabs button {
+    flex: 1;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.tabs button.active {
+    border-bottom: 3px solid #007bff;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.solution-container {
+    display: flex;
+    gap: 20px;
+}
+
+.solution {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type="number"] {
+    width: 60px;
+}
+
+.btn-decrement,
+.btn-increment {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-decrement:hover,
+.btn-increment:hover {
+    background-color: #0056b3;
+}
+
+/* Styles pour afficher les métriques en 2 lignes */
+.result-metrics-inline {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.result-metrics-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.result-metrics-row span {
+    margin-right: 20px;
+}
+
+/* Forcer le nombre et l'unité à rester sur la même ligne */
+.nowrap {
+    white-space: nowrap;
+}
+
+/* Responsive design: alignement en colonne pour petits écrans */
+@media (max-width: 768px) {
+    .result-metrics-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .result-metrics-row span {
+        margin-bottom: 10px;
+    }
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.comparison-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.graphs {
+    margin-top: 20px;
+}
+
+/* Styles pour les images des graphiques */
+.graph-container {
+    margin-bottom: 40px;
+    position: relative;
+    width: 100%;
+    height: auto; /* Ajuste la hauteur automatiquement en fonction de la largeur */
+    max-width: 800px; /* Vous pouvez ajuster cette valeur pour vos besoins */
+    overflow: hidden;
+    border-radius: 8px; /* Ajoute des coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour plus de profondeur */
+}
+
+.graph-container img {
+    width: 100%;
+    height: auto; /* Conserve le ratio d'aspect de l'image */
+    object-fit: cover; /* Assure que l'image couvre le conteneur sans déformation */
+    transition: transform 0.3s ease; /* Ajoute une transition pour l'effet de survol */
+}
+
+.pdf-download {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pdf-download button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.pdf-download button:hover {
+    background-color: #0056b3;
+}
+
+/* Section de coût d'exploitation */
+.exploitation-cost, .energy-consumption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Styles pour les images */
+.exploitation-image img, .energy-image img {
+    max-width: 300px;
+    height: auto;
+    margin-right: 20px;
+}
+
+/* Styles pour le texte */
+.exploitation-text, .energy-text {
+    flex: 1;
+}
+
+/* Responsive design: alignement vertical sur petits écrans */
+@media (max-width: 768px) {
+    .exploitation-cost, .energy-consumption {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .exploitation-image img, .energy-image img {
+        margin-bottom: 10px;
+    }
+}
+

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comparaison de Solutions d'Éclairage</title>
+    <link rel="stylesheet" href="css/ROI_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="components/header.js" type="text/javascript" defer></script>
+    <script src="components/footer.js" type="text/javascript" defer></script>
+</head>
+
+<body>
+    <!-- header-->
+    <header-component></header-component>
+
+    <div class="container">
+        <!-- Titre principal -->
+        <h1>Bienvenue dans l'application ROI groupe</i></h1>
+
+        <!-- Onglets -->
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'project-info')">Informations projet</button>
+            <button class="tab-link" onclick="openTab(event, 'solution-info')">Informations solutions</button>
+            <button class="tab-link" onclick="openTab(event, 'results')">Résultats</button>
+        </div>
+
+        <!-- Section: Informations projet -->
+        <div id="project-info" class="content-section active">
+            <h2>Informations sur le projet</h2>
+            <label for="project-name">Nom du projet</label>
+            <input type="text" id="project-name" placeholder="Nom du projet">
+
+            <label for="city">Ville</label>
+            <input type="text" id="city" placeholder="Ville">
+
+            <label for="electricity-rate">Tarif de l'électricité (€/kWh)</label>
+            <input type="number" id="electricity-rate" value="0.15">
+
+            <label for="electricity-growth">Évolution du tarif de l'électricité / an (%)</label>
+            <input type="number" id="electricity-growth" value="2.00">
+
+            <label for="cumac-rate">Cours du Cumac (€/MWh)</label>
+            <input type="number" id="cumac-rate" value="6.50">
+
+            <label for="operation-hours">Durée de fonctionnement (heures/an)</label>
+            <input type="number" id="operation-hours" value="3800">
+        </div>
+
+        <!-- Section: Informations solutions -->
+        <div id="solution-info" class="content-section">
+            <h2>Informations sur les solutions</h2>
+            <div class="solution-container">
+                <div class="solution">
+                    <h3>Solution 1</h3>
+                    <label for="luminaire1-name">Nom du luminaire</label>
+                    <input type="text" id="luminaire1-name" value="Solution 1">
+
+                    <label for="luminaire1-tech">Technologie utilisée</label>
+                    <select id="luminaire1-tech">
+                        <option value="conventionnel">Conventionnel</option>
+                        <option value="led">LED</option>
+                        <option value="led">Solaire</option>
+                    </select>
+
+                    <label for="luminaire1-quantity">Nombre de luminaires</label>
+                    <div class="input-group">
+                        <button class="btn-decrement" onclick="decrement('luminaire1-quantity')">-</button>
+                        <input type="number" id="luminaire1-quantity" value="1">
+                        <button class="btn-increment" onclick="increment('luminaire1-quantity')">+</button>
+                    </div>
+
+                    <label for="luminaire1-power">Puissance par luminaire (W)</label>
+                    <div class="input-group">
+                        <button class="btn-decrement" onclick="decrement('luminaire1-power')">-</button>
+                        <input type="number" id="luminaire1-power" value="250">
+                        <button class="btn-increment" onclick="increment('luminaire1-power')">+</button>
+                    </div>
+
+                    <label for="luminaire1-investment">Investissement par luminaire (€)</label>
+                    <input type="number" id="luminaire1-investment" value="0">
+
+                    <label for="luminaire1-maintenance">Coût de maintenance par luminaire (€)</label>
+                    <input type="number" id="luminaire1-maintenance" value="10000">
+
+                    <label for="luminaire1-detection">Détection de présence</label>
+                    <select id="luminaire1-detection">
+                        <option value="non">Non</option>
+                        <option value="oui">Oui</option>
+                    </select>
+
+                    <label for="luminaire1-options">Options supplémentaires</label>
+                    <div>
+                        <input type="checkbox" id="luminaire1-gradation" value="gradation">
+                        <label for="luminaire1-gradation">Gradation horaire</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="luminaire1-deductions" value="deductions">
+                        <label for="luminaire1-deductions">Deductions CEE (€)</label>
+                    </div>
+                </div>
+
+                <div class="solution">
+                    <h3>Solution 2</h3>
+                    <label for="luminaire2-name">Nom du luminaire</label>
+                    <input type="text" id="luminaire2-name" value="Solution 2">
+
+                    <label for="luminaire2-tech">Technologie utilisée</label>
+                    <select id="luminaire2-tech">
+                        <option value="conventionnel">Conventionnel</option>
+                        <option value="led">LED</option>
+                        <option value="led">Solaire</option>
+                    </select>
+
+                    <label for="luminaire2-quantity">Nombre de luminaires</label>
+                    <div class="input-group">
+                        <button class="btn-decrement" onclick="decrement('luminaire2-quantity')">-</button>
+                        <input type="number" id="luminaire2-quantity" value="1">
+                        <button class="btn-increment" onclick="increment('luminaire2-quantity')">+</button>
+                    </div>
+
+                    <label for="luminaire2-power">Puissance par luminaire (W)</label>
+                    <div class="input-group">
+                        <button class="btn-decrement" onclick="decrement('luminaire2-power')">-</button>
+                        <input type="number" id="luminaire2-power" value="250">
+                        <button class="btn-increment" onclick="increment('luminaire2-power')">+</button>
+                    </div>
+
+                    <label for="luminaire2-investment">Investissement par luminaire (€)</label>
+                    <input type="number" id="luminaire2-investment" value="0">
+
+                    <label for="luminaire2-maintenance">Coût de maintenance par luminaire (€)</label>
+                    <input type="number" id="luminaire2-maintenance" value="10000">
+
+                    <label for="luminaire2-detection">Détection de présence</label>
+                    <select id="luminaire2-detection">
+                        <option value="non">Non</option>
+                        <option value="oui">Oui</option>
+                    </select>
+
+                    <label for="luminaire2-options">Options supplémentaires</label>
+                    <div>
+                        <input type="checkbox" id="luminaire2-gradation" value="gradation">
+                        <label for="luminaire2-gradation">Gradation horaire</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="luminaire2-deductions" value="deductions">
+                        <label for="luminaire2-deductions">Deductions CEE (€)</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Résultats de comparaison sur deux lignes -->
+        <div id="results" class="content-section">
+            <h2>Résultats de comparaison des 2 solutions</h2>
+
+            <!-- Les résultats en 2 lignes -->
+            <div class="result-metrics-inline">
+                <div class="result-metrics-row">
+                    <span><strong>Investissement :</strong> <span class="nowrap">0 €</span></span>
+                    <span><strong>Retour sur investissement :</strong> <span class="nowrap">0 mois</span></span>
+                    <span><strong>Réduction consommation électrique :</strong> <span class="nowrap">-0.0 %</span></span>
+                </div>
+                <div class="result-metrics-row">
+                    <span><strong>Diminution impact carbone :</strong> <span class="nowrap">0.0 tCO2/an</span></span>
+                    <span><strong>Émission annuelle de :</strong> <span class="nowrap">0.0 voitures</span></span>
+                    <span><strong>Stockage CO2 annuel :</strong> <span class="nowrap">0 arbres</span></span>
+                </div>
+            </div>
+
+            <!-- Tableau des comparaisons -->
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Solution 1</th>
+                        <th>Solution 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nom du luminaire</td>
+                        <td>Solution 1</td>
+                        <td>Solution 2</td>
+                    </tr>
+                    <tr>
+                        <td>Technologie</td>
+                        <td>Conventionnel</td>
+                        <td>Conventionnel</td>
+                    </tr>
+                    <tr>
+                        <td>Nombre de luminaires</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Puissance par luminaire (W)</td>
+                        <td>250</td>
+                        <td>250</td>
+                    </tr>
+                    <tr>
+                        <td>Investissement par luminaire (€)</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Durée de fonctionnement annuelle (heures)</td>
+                        <td>3800</td>
+                        <td>3800</td>
+                    </tr>
+                    <tr>
+                        <td>Économie Détection de présence (%)</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Économie Gradation (%)</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Économie totale (%)</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Durée de vie par luminaire (heures)</td>
+                        <td>10000</td>
+                        <td>10000</td>
+                    </tr>
+                    <tr>
+                        <td>Energie consommée par an (kWh)</td>
+                        <td>950</td>
+                        <td>4750</td>
+                    </tr>
+                    <tr>
+                        <td>Coûts d'investissement (€)</td>
+                        <td>6500</td>
+                        <td>3500</td>
+                    </tr>
+                    <tr>
+                        <td>Coûts énergétiques annuels (€)</td>
+                        <td>142</td>
+                        <td>712</td>
+                    </tr>
+                    <tr>
+                        <td>Coûts de maintenance annuels (€)</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>Coûts totaux annuels (€)</td>
+                        <td>142</td>
+                        <td>742</td>
+                    </tr>
+                    <tr>
+                        <td>Coût d'exploitation sur 20 ans (€)</td>
+                        <td>9743</td>
+                        <td>19762</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Graphiques -->
+            <div class="graphs">
+                <div class="graph-container">
+                    <h1 class="graph-title">Coût d'exploitation</h1>
+                    <img src="img/Cout-dexploit-ROI.png" alt="Graphique 1">
+                </div>
+                <div class="graph-container">
+                    <h1 class="graph-title">Consommation d'énergie</h1>
+                    <img src="img/Conso-ROI.png" alt="Graphique 2">
+                </div>
+            </div>
+
+            <!-- Bouton PDF -->
+            <div class="pdf-download">
+                <button onclick="downloadPDF()">Télécharger le PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
+
+    <script>
+        function openTab(evt, tabId) {
+            const sections = document.getElementsByClassName('content-section');
+            for (let i = 0; i < sections.length; i++) {
+                sections[i].style.display = 'none';
+                sections[i].classList.remove('active');
+            }
+
+            const tabs = document.getElementsByClassName('tab-link');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('active');
+            }
+
+            document.getElementById(tabId).style.display = 'block';
+            document.getElementById(tabId).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        function increment(inputId) {
+            const input = document.getElementById(inputId);
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decrement(inputId) {
+            const input = document.getElementById(inputId);
+            if (input.value > 0) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        document.getElementById('project-info').style.display = 'block';
+    </script>
+</body>
+
+</html>

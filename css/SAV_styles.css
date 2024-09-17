@@ -3,7 +3,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff;
+    background-color: #f4f4f4;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@ header nav a:hover {
 /* Section principale du dashboard */
 .dashboard {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     padding: 20px;
     position: relative;
@@ -57,7 +57,8 @@ header nav a:hover {
 
 .dashboard-central {
     width: 100%;
-    border: 2px solid #4CAF50;
+    max-width: 1200px;
+    border: 2px solid #263C47;
     border-radius: 10px;
     padding: 20px;
     background-color: #fff;
@@ -70,20 +71,22 @@ header nav a:hover {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .filter-zone label {
     font-size: 16px;
-    color: #4CAF50;
+    color: #263C47;
     margin-right: 10px;
 }
 
 .filter-zone input {
     padding: 8px 12px;
-    border: 2px solid #4CAF50;
+    border: 2px solid #263C47;
     border-radius: 5px;
     width: 100%;
     max-width: 300px;
+    font-size: 16px;
 }
 
 /* Tableau des tickets */
@@ -100,7 +103,7 @@ th, td {
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #263C47;
     color: #fff;
     text-transform: uppercase;
     font-size: 14px;
@@ -116,16 +119,17 @@ tr:hover {
 }
 
 /* Boutons de droite */
-.dashboard-right {
+.dashboard-buttons {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.dashboard-right .btn {
+.dashboard-buttons .btn {
     padding: 10px 20px;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #263C47;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
@@ -134,8 +138,8 @@ tr:hover {
     font-size: 16px;
 }
 
-.dashboard-right .btn:hover {
-    background-color: #388E3C;
+.dashboard-buttons .btn:hover {
+    background-color: #263C90;
     transform: translateY(-3px);
 }
 
@@ -145,7 +149,7 @@ tr:hover {
     margin-top: 10px;
     padding: 15px;
     background-color: #fff;
-    border: 2px solid #4CAF50;
+    border: 2px solid #263C47;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -158,7 +162,7 @@ tr:hover {
     display: inline-block;
     padding: 10px 20px;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #263C47;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
@@ -167,7 +171,7 @@ tr:hover {
 }
 
 .details .btn:hover {
-    background-color: #388E3C;
+    background-color: #263C90;
     transform: translateY(-3px);
     transition: background-color 0.3s, transform 0.3s;
 }
@@ -201,28 +205,92 @@ footer .footer-links a:hover {
     text-decoration: underline;
 }
 
-/* Boutons en haut à droite */
-.dashboard-buttons {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.dashboard-buttons .btn {
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #4CAF50;
-    border-radius: 5px;
+/* Description de la page */
+.page-description {
     text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    font-size: 16px;
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
 }
 
-.dashboard-buttons .btn:hover {
-    background-color: #388E3C;
-    transform: translateY(-3px);
+/* Style de base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* En-tête */
+header {
+    background-color: #800000; /* Rouge foncé */
+    padding: 15px;
+    color: #fff;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Titre centré au-dessus du dashboard */
+.page-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin: 20px 0;
+}
+
+/* Description sous le titre */
+.description {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Section principale du dashboard */
+.dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    position: relative;
+}
+
+.dashboard-central {
+    width: 100%;
+    border: 2px solid #263C47;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Conteneur des boutons et du champ de filtrage */
+.filter-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }

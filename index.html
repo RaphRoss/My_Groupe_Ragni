@@ -11,80 +11,94 @@
     <script src="components/footer.js" type="text/javascript" defer></script>
 </head>
 <body>
-    <!-- Bouton pour ouvrir le menu déroulant -->
-    <button class="open-menu-btn" onclick="openMenu()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAW9JREFUWEftmEtKA0EQhr9ofKz0BCIo6A0EN4IIbr2RD7yQWyELQRC8g0ruEDeKGq3QLU2TpqusDE50Zpmuxzd/Vfd0pUfLnl7LeOiAahWZptAacAJs15yd64/AFTBK4+RAu8A1sOlMpnUfAkfAU3TIge6BPW20GdndAIcloFdgCfgALmeUsBTmLCy8AKsloHFYeAtgTTLFXJLju1J5yeYG6FwhVWpTsk9/dymUOpfYUrVL9iUbc8l+Hegd6CdSWIE0JZOdHJWpKuQFUrTc5Gj5v0CtK5lml5lKJsaLjqbWAEmfLoQc1abOgZo4GF1Aml1jtflbQJqSaRRK45gUkqaMDSeJNCe1Bij9lrUOSO5ccSdXd1muUBMlcwFpymG1mU8guXAvh1e9sL6y0f40fO1lsFgpXfLvvuayfWNgr/ktcFAC2gEGwIY3i9JfBsRjQKbYyTNtlF4Po/SWMuhPzR7CKP2cBuj+/ajJ2SlUU+gTxKRpJchVIp4AAAAASUVORK5CYII="/> Actualités</button>
-
-    <!-- Menu déroulant -->
-    <div id="side-menu" class="side-menu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
-        <h2>Actualités du Groupe Ragni</h2>
-        
-        <div class="news-form">
-            <input type="text" id="news-title" placeholder="Titre de l'actualité">
-            <textarea id="news-content" placeholder="Contenu de l'actualité"></textarea>
-            
-            <!-- Image Upload Section -->
-            <div class="image-upload">
-                <label for="news-image">Sélectionner une image</label>
-                <input type="file" id="news-image" accept="image/*">
-                <div id="drop-area">ou glissez-déposez l'image ici</div>
-                <img id="preview-image" src="" alt="Aperçu de l'image" style="display: none;"/>
-            </div>
-            
-            <button onclick="addNews()">Ajouter l'actualité</button>
-        </div>
-        
-        <div class="news-content">
-            <!-- Les actualités seront ajoutées ici -->
-        </div>
-    </div>
-
-    <!-- Overlay pour masquer le reste de la page lors de l'ouverture du menu -->
-    <div id="overlay" class="overlay" onclick="closeMenu()"></div>
-
     <!-- Header -->
     <header-component></header-component>
 
     <!-- Main Content -->
     <main>
+        
         <section class="hero">
             <h1>Bienvenue sur My Groupe Ragni</h1>
             <p>My Groupe Ragni est une plateforme qui regroupe les différentes applications du Groupe Ragni.</p>
             <p>Découvrez nos services en cliquant sur les boutons ci-dessous.</p>
         </section>
 
-    <!-- Section des boutons -->
-    <section class="button-grid">
-        <a href="b2b.html" class="button-item">
-            <img src="img/configurateur.png" alt="">
-            <p>B2B</p>
-        </a>
-        <a href="config.html" class="button-item">
-            <img src="img/configurateur.png" alt="">
-            <p>Configurateurs groupe</p>
-        </a>
-        <a href="#" class="button-item">
-            <img src="img/configurateur.png" alt="">
-            <p>Export de Données Produits</p>
-        </a>
-        <a href="https://www.mynovea.com/" class="button-item">
-            <img src="img/configurateur.png" alt="">
-            <p>My_Novea</p>
-        </a>
-        <a href="#" class="button-item">
-            <img src="img/configurateur.png" alt="">
-            <p>ROI groupe</p>
-        </a>
-        <a href="SAV.html" class="button-item">
-            <img src="img/configurateur.png" alt="">
-            <p>Gestion SAV</p>
-        </a>
-    </section>
-  </main>
+        <section class="container">
+            <!-- Colonne gauche pour les boutons d'applications -->
+            <div class="app-buttons">
+                <h2>Applications du Groupe Ragni</h2>
+                <div class="button-grid">
+                    <a href="b2b.html" class="button-item">
+                        <img src="img/B2B.png" alt="">
+                        <p>B2B</p>
+                    </a>
+                    <a href="#" class="button-item">
+                        <img src="img/configurateur.png" alt="">
+                        <p>Configurateur public</p>
+                    </a>
+                    <a href="#" class="button-item">
+                        <img src="img/export_donne_produit.jpg" alt="">
+                        <p>Export de Données Produits</p>
+                    </a>
+                    <a href="https://www.mynovea.com/" class="button-item">
+                        <img src="img/logo_Novea.png" alt="">
+                        <p>My_Novea</p>
+                    </a>
+                    <a href="ROI.html" class="button-item">
+                        <img src="img/ROI.jpg" alt="">
+                        <p>ROI groupe</p>
+                    </a>
+                    <a href="SAV.html" class="button-item">
+                        <img src="img/SAV.jpg" alt="">
+                        <p>Gestion SAV</p>
+                    </a>
+                    <a href="actu.html" class="button-item">
+                        <img src="img/Actualite.jpg" alt="">
+                        <p>Admin : Gestion Actualités</p>
+                    </a>
+                </div>
+            </div>
 
-  <!-- Footer -->
-  <footer-component></footer-component>
+            <!-- Colonne droite pour les actualités -->
+            <div class="news-section">
+                <h2>Actualités du Groupe Ragni</h2>
+                <div class="news-content">
+                    <!-- Exemple d'actualités avec lien "En savoir plus" -->
+                    <div class="news-item">
+                        <img src="img/logo_Ragni.png" alt="Image actualité 1">
+                        <div class="news-info">
+                            <h3>Lancement de la nouvelle gamme de produits</h3>
+                            <p>Le Groupe Ragni dévoile une nouvelle gamme innovante de solutions d'éclairage urbain.</p>
+                            <span class="date">Publié le 5 septembre 2024</span>
+                            <a href="#" class="read-more">En savoir plus</a>
+                        </div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <img src="img/logo_Ragni.png" alt="Image actualité 2">
+                        <div class="news-info">
+                            <h3>Partenariat avec une entreprise internationale</h3>
+                            <p>Nous sommes fiers d'annoncer un partenariat stratégique avec un leader mondial de la technologie.</p>
+                            <span class="date">Publié le 22 août 2024</span>
+                            <a href="#" class="read-more">En savoir plus</a>
+                        </div>
+                    </div>
 
-  <script src="components/menu.js"></script>
+                    <div class="news-item">
+                        <img src="img/logo_Ragni.png" alt="Image actualité 3">
+                        <div class="news-info">
+                            <h3>Participation à la Conférence mondiale de l’éclairage</h3>
+                            <p>Le Groupe Ragni a participé à la conférence annuelle, présentant des innovations durables.</p>
+                            <span class="date">Publié le 15 juillet 2024</span>
+                            <a href="#" class="read-more">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
 </body>
 </html>

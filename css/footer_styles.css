@@ -14,7 +14,10 @@ html, body {
 }
 
 footer {
-    background: linear-gradient(90deg, #aa0b0b, #000000);
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 30%, black 70%), 
+                      url('../img/anthony-tuil-dqiSOmCsb4s-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
     color: white;
     padding: 20px 0;
     clip-path: polygon(0 0, 100% 12%, 100% 100%, 0 100%);
@@ -63,8 +66,9 @@ footer {
 }
 
 .unique-footer-social img {
-    width: 30px;
+    height: 70px;
     margin-right: 10px;
+    margin-top: 10px;
 }
 
 .unique-footer-social p {
