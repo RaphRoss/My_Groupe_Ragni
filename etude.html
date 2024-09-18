@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande d'étude</title>
+    <link rel="stylesheet" type="text/css" href="css/etude_styles.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <script src="components/header.js" type="text/javascript" defer></script>
+    <script src="components/footer.js" type="text/javascript" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header-component></header-component>
+
+    <!-- Main Content -->
+    <main>
+        <h1 class="title">Bienvenue sur les demandes d'étude du Groupe Ragni</h1>
+        <p class="question">Quel type d'étude souhaitez-vous entreprendre ?</p>
+        
+        <div class="buttons">
+            <button class="study-btn" onclick="showForm('photometrique')">Etude photométrique</button>
+            <button class="study-btn" onclick="showForm('infographique')">Etude infographique</button>
+            <button class="study-btn" onclick="showForm('mecanique')">Etude mécanique</button>
+            <button class="study-btn" onclick="showForm('projetSpecifique')">Demande de projet spécifique</button>
+        </div>
+
+        <!-- Form Container -->
+        <div id="form-container"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
+
+    <script src="components/etude.js"></script>
+</body>
+</html>

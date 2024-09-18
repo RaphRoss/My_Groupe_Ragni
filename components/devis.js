@@ -23,29 +23,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fonction pour créer un champ de produit avec ou sans bouton config
     function createProductInput(value) {
-        const productWrapper = document.createElement('div');
-        productWrapper.classList.add('product-wrapper');
+    const productWrapper = document.createElement('div');
+    productWrapper.classList.add('product-wrapper');
 
-        const newInput = document.createElement('input');
-        newInput.setAttribute('type', 'text');
-        newInput.setAttribute('name', 'produit[]');
-        newInput.setAttribute('placeholder', value || 'Votre produit');
-        newInput.value = value || '';
-        productWrapper.appendChild(newInput);
+    const newInput = document.createElement('input');
+    newInput.setAttribute('type', 'text');
+    newInput.setAttribute('name', 'produit[]');
+    newInput.setAttribute('placeholder', value || 'Votre produit');
+    newInput.value = value || '';
+    productWrapper.appendChild(newInput);
 
-        // Ajoute un bouton "config" pour les types spécifiques
-        if (['Luminaire', 'Mat', 'Console'].includes(value)) {
-            const configButton = document.createElement('button');
-            configButton.textContent = 'Config';
-            configButton.classList.add('config-button');
-            configButton.addEventListener('click', function() {
-                window.location.href = '#';  // Mettre l'URL de redirection ici
-            });
-            productWrapper.appendChild(configButton);
-        }
-
-        return productWrapper;
+    // Ajoute un bouton "config" pour les types spécifiques
+    if (value === 'Luminaire') {
+        const configButton = document.createElement('button');
+        configButton.textContent = 'Config Lum';
+        configButton.classList.add('config-button');
+        configButton.setAttribute('type', 'button');
+        configButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = '#';  // URL spécifique pour Luminaire
+        });
+        productWrapper.appendChild(configButton);
+    } else if (value === 'Mat') {
+        const configButton = document.createElement('button');
+        configButton.textContent = 'Config Mat';
+        configButton.classList.add('config-button');
+        configButton.setAttribute('type', 'button');
+        configButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = '#';  // URL spécifique pour Mat
+        });
+        productWrapper.appendChild(configButton);
+    } else if (value === 'Console') {
+        const configButton = document.createElement('button');
+        configButton.textContent = 'Config Console';
+        configButton.classList.add('config-button');
+        configButton.setAttribute('type', 'button');
+        configButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = '#';  // URL spécifique pour Console
+        });
+        productWrapper.appendChild(configButton);
     }
+
+    return productWrapper;
+}
 
     document.getElementById('add-line').addEventListener('click', function () {
         const newInput = createProductInput();
