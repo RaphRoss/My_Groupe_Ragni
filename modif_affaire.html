@@ -8,16 +8,11 @@
   <link href="css/affaire_styles.css" rel="stylesheet" type="text/css" />
   <script src="components/header.js" type="text/javascript" defer></script>
   <script src="components/footer.js" type="text/javascript" defer></script>
-  <title>Création d'Affaire</title>
+  <title>Modification d'Affaire</title>
   <style>
-    /* Ajoute une classe pour masquer les boutons au départ */
-    .hidden {
-      display: none;
-    }
-
     /* Style pour les champs grisés */
     .disabled {
-      background-color: #e0e0e0;
+      background-color: #8f8c8c;
       pointer-events: none;
     }
   </style>
@@ -28,36 +23,31 @@
 
   <!-- Content -->
   <div class="header">
-    <h1>Création d'Affaire</h1>
+    <h1>Modification d'Affaire</h1>
   </div>
 
   <div class="form-container">
     <form id="affaireForm" action="/creer_devis.html" method="POST">
       <label for="nom_affaire">Nom de l’affaire</label>
-      <input type="text" id="nom_affaire" name="nom_affaire" value="Arena" required>
+      <input type="text" id="nom_affaire" name="nom_affaire" value="Affaire 1" disabled>
 
       <label for="ville">Ville</label>
-      <input type="text" id="ville" name="ville" value="Nice" required>
+      <input type="text" id="ville" name="ville" value="Nice" disabled>
 
-      <label for="ville">Code postale</label>
-      <input type="text" id="ville" name="ville" value="06000" required>
+      <label for="code_postal">Code postal</label>
+      <input type="text" id="code_postal" name="code_postal" value="06000" disabled>
 
       <label for="pays">Pays</label>
-      <input type="text" id="pays" name="pays"  value="France" required>
+      <input type="text" id="pays" name="pays" value="France" disabled>
 
       <label for="budget">Montant/budget Estimé</label>
-      <input type="number" id="budget" name="budget"  value="10000">
+      <input type="text" id="budget" name="budget" value="12000€" disabled>
 
       <label for="date_realisation">Date estimée de réalisation</label>
-      <input type="date" id="date_realisation" name="date_realisation">
+      <input type="text" id="date_realisation" name="date_realisation" value="30/09/2024" disabled>
 
-      <!-- Le bouton pour créer une affaire -->
+      <!-- Les boutons sont tous visibles dès le début -->
       <div class="buttons">
-        <button type="button" id="creerAffaireBtn" onclick="creerAffaire()">Créer une affaire</button>
-      </div>
-
-      <!-- Les autres boutons, masqués au départ -->
-      <div id="additional-buttons" class="buttons hidden">
         <a href="gestion_devis.html"><button type="button">Création d’un devis</button></a>
         <a href="https://www.mynovea.com/"><button type="button">Demande MyNovea</button></a>
         <a href="#"><button type="button">Demande SEVe</button></a>
@@ -69,33 +59,13 @@
     <div class="devis-list">
       <h2></h2>
       <ul>
-        <li>
-        </li>
-        <li>
-        </li>
+        <li></li>
+        <li></li>
       </ul>
     </div>
   </div>
 
   <!-- Footer -->
   <footer-component></footer-component>
-
-  <script>
-    function creerAffaire() {
-      const nomAffaire = document.getElementById('nom_affaire').value;
-      const ville = document.getElementById('ville').value;
-      const pays = document.getElementById('pays').value;
-      const budget = document.getElementById('budget').value;
-      const dateRealisation = document.getElementById('date_realisation').value;
-
-      // Vérification que tous les champs requis sont remplis
-      if (nomAffaire && ville && pays) {
-        alert('Vous avez créé une affaire');
-        window.location.href = 'gestion_affaire.html';
-      } else {
-        alert('Veuillez remplir tous les champs requis avant de créer une affaire.');
-      }
-    }
-  </script>
 </body>
 </html>

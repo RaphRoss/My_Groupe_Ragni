@@ -82,4 +82,18 @@ footer {
     margin-top: 20px;
 }
 
+.unique-reseaux-liste {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Ajoute cette ligne pour mettre les éléments en ligne */
+    justify-content: space-between; /* Optionnel: Ajoute de l'espace entre les éléments */
+}
 
+.unique-reseaux-liste li {
+    margin: 0 10px; /* Optionnel: Ajuste l'espacement horizontal entre les images */
+}
+
+.unique-reseaux-liste li img {
+    height: 300px; /* Ajuste la taille des images si nécessaire */
+}

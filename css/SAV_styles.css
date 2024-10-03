@@ -294,3 +294,28 @@ header nav a:hover {
     justify-content: space-between;
     margin-bottom: 20px;
 }
+
+/* Styles pour la popup */
+.popup {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Rester en place */
+    left: 0;
+    top: 0;
+    width: 100%; /* Plein écran */
+    height: 100%; /* Plein écran */
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    z-index: 1000; /* Au-dessus des autres éléments */
+}
+.popup-content {
+    background: white; /* Fond blanc */
+    padding: 20px; /* Espacement */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+.close-btn {
+    cursor: pointer; /* Curseur pointeur */
+    color: red; /* Couleur rouge */
+    float: right; /* Aligner à droite */
+}

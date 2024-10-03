@@ -17,16 +17,25 @@
         <p>Remplissez le formulaire ci-dessous pour créer un nouveau devis</p>
         <form id="devis-form">
             <label for="nom">Nom:</label>
-            <input type="text" id="nom" name="nom" required>
-            <label for="prenom">Prénom:</label>
-            <input type="text" id="prenom" name="prenom" required>
-            <label for="ville">Ville:</label>
-            <input type="text" id="ville" name="ville" required>
-            <label for="date-livraison">Date de Livraison:</label>
+            <input type="text" id="nom" name="nom" value="Arena" required>
+            <label for="prenom">Ville:</label>
+            <input type="text" id="prenom" name="prenom" value="Nice" required>
+            <label for="ville">Pays:</label>
+            <input type="text" id="ville" name="ville" value="France" required>
+            <label for="date-livraison">Date de livraison estimée:</label>
             <input type="date" id="date-livraison" name="date-livraison" required>
 
+            <!-- Boutons Créer et Retour -->
+            <div class="submit-buttons">
+                <button type="submit" class="btn">Créer votre devis</button>
+                <button type="button" id="return-button" class="btn">Retour à la gestion des devis</button>
+            </div>
+        </form>
+
+        <!-- Section masquée par défaut, qui apparaîtra après création du devis -->
+        <div id="post-devis-section" style="display: none;">
             <div class="section">
-                <h2>Choisissez vo(s)tre produit(s):</h2>
+                <h2>Choisissez vos produits:</h2>
                 <div class="buttons-group">
                     <a href="#" class="btn" id="ensemble-btn">Ensemble</a>
                     <a href="#" class="btn" id="composant-btn">Composant</a>
@@ -37,25 +46,38 @@
             </div>
 
             <div class="section">
-                <h2>Vo(s)tre produit(s):</h2>
+                <h2>Vos produits:</h2>
                 <div class="add-remove-buttons">
-                  <button type="button" id="add-line" class="btn small">+</button>
-                  <button type="button" id="remove-line" class="btn small">-</button>
+                    <button type="button" id="add-line" class="btn small">+</button>
+                    <button type="button" id="remove-line" class="btn small">-</button>
                 </div>
                 <div id="products-list">
                     <!-- Les lignes de produits seront ajoutées ici via JavaScript -->
+                    <input type="text" id="luminaire" name="luminaire" value="Luminaire: Bento / Quantité: 1 / Tarif: 1000€ / Taille: S V2 / Version: 076 / Option Protection: Polycarbonate IK10 / Matériau: Aluminium / Couleur: Standard / Hors Standard: RAL 1001 / Option Bord de Mer: Non / Nombre de LED: 16 LED (5050) / Température: 4000K / Distribution Photométrique: ASY13 / Classe Électrique: CLII / Type de Driver: Full prog" style="display: none;">
                 </div>
             </div>
 
+            <!-- Bouton Valider votre devis -->
             <div class="submit-buttons">
-                <button type="submit" class="btn">Créer votre devis</button>
-                <button type="button" id="return-button" class="btn">Retour à la création d'affaire</button>
+                <button type="button" class="btn">Valider votre devis</button>
             </div>
-        </form>
+        </div>
     </div>
+
     <footer-component></footer-component>
 
     <script src="components/devis.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('fromConfigLum') === 'true') {
+                const luminaireInput = document.getElementById('luminaire');
+                luminaireInput.style.display = 'block';
+                luminaireInput.setAttribute('readonly', true);
+                luminaireInput.style.backgroundColor = '#e0e0e0';
+                localStorage.removeItem('fromConfigLum');
+            }
+        });
+    </script>
 </body>
 
 </html>

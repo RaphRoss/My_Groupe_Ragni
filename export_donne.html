@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <script src="components/header.js" type="text/javascript" defer></script>
+    <script src="components/footer.js" type="text/javascript" defer></script>
+    <link rel="stylesheet" href="css/export_donne.css">
+    <title>Export de données produits</title>
+</head>
+<body>
+    <!-- Header -->
+    <header-component></header-component>
+
+    <!-- Main content -->
+    <h1>Bienvenue sur l'application Export de Données Produits.</h1>
+    <p>Cette application vous permet de sélectionner une marque pour afficher et filtrer ses produits.</p>
+
+    <!-- Sélection de marque -->
+    <div>
+        <label for="marque-select">Choisissez une marque :</label>
+        <select id="marque-select" onchange="afficherTableau()">
+            <option value="">--    -- </option>
+            <option value="Ragni">Ragni</option>
+            <option value="LEC">LEC</option>
+            <option value="HESS">HESS</option>
+        </select>
+    </div>
+
+    <!-- Section des filtres et tableau -->
+    <div id="tableau-section" style="display:none;">
+        <table id="product-table">
+            <thead>
+                <tr>
+                    <th>
+                        <input type="text" id="filter-name" placeholder="Nom produit" onkeyup="filterTable()">
+                    </th>
+                    <th>
+                        <select id="filter-application" onchange="filterTable()">
+                            <option value="">Application</option>
+                            <option value="Produit d'éclairage routier fonctionnel">Produit d'éclairage routier fonctionnel</option>
+                            <option value="Produit d'éclairage urbain">Produit d'éclairage urbain</option>
+                            <option value="Produit d'éclairage solaire">Produit d'éclairage solaire</option>
+                            <option value="Produit autre">Produit autre</option>
+                        </select>
+                    </th>
+                    <th>
+                        <select id="filter-montage" onchange="filterTable()">
+                            <option value="">Type de montage</option>
+                            <option value="TOP">TOP</option>
+                            <option value="Latéral">Latéral</option>
+                            <option value="Porté">Porté</option>
+                            <option value="Encastré">Encastré</option>
+                            <option value="Main courante">Main courante</option>
+                            <option value="Suspendu">Suspendu</option>
+                        </select>
+                    </th>
+                    <th>
+                        <select id="filter-produit" onchange="filterTable()">
+                            <option value="">Type de produit</option>
+                            <option value="Luminaire">Luminaire</option>
+                            <option value="Colonne">Colonne</option>
+                            <option value="Borne">Borne</option>
+                            <option value="Projecteur">Projecteur</option>
+                            <option value="Module et retrofit">Module et retrofit</option>
+                        </select>
+                    </th>
+                    <th>
+                        <select id="filter-forme" onchange="filterTable()">
+                            <option value="">Forme</option>
+                            <option value="Carré">Carré</option>
+                            <option value="Rond">Rond</option>
+                            <option value="Linéaire">Linéaire</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Nom produit</th>
+                    <th>Application</th>
+                    <th>Type de montage</th>
+                    <th>Type produit</th>
+                    <th>Forme</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-marque="Ragni" onclick="showPopup('Produit A')">
+                    <td>Produit A</td>
+                    <td>Produit d'éclairage urbain</td>
+                    <td>TOP</td>
+                    <td>Luminaire</td>
+                    <td>Rond</td>
+                </tr>
+                <tr data-marque="LEC" onclick="showPopup('Produit B')">
+                    <td>Produit B</td>
+                    <td>Produit d'éclairage solaire</td>
+                    <td>Latéral</td>
+                    <td>Borne</td>
+                    <td>Carré</td>
+                </tr>
+                <tr data-marque="HESS" onclick="showPopup('Produit C')">
+                    <td>Produit C</td>
+                    <td>Produit autre</td>
+                    <td>Encastré</td>
+                    <td>Projecteur</td>
+                    <td>Linéaire</td>
+                </tr>
+                <tr data-marque="Ragni" onclick="showPopup('Produit D')">
+                    <td>Produit D</td>
+                    <td>Produit d'éclairage routier fonctionnel</td>
+                    <td>Main courante</td>
+                    <td>Luminaire</td>
+                    <td>Carré</td>
+                </tr>
+                <tr data-marque="LEC" onclick="showPopup('Produit E')">
+                    <td>Produit E</td>
+                    <td>Produit autre</td>
+                    <td>Porté</td>
+                    <td>Module et retrofit</td>
+                    <td>Rond</td>
+                </tr>
+                <tr data-marque="HESS" onclick="showPopup('Produit F')">
+                    <td>Produit F</td>
+                    <td>Produit d'éclairage urbain</td>
+                    <td>Suspended</td>
+                    <td>Colonne</td>
+                    <td>Linéaire</td>
+                </tr>
+                <tr data-marque="Ragni" onclick="showPopup('Produit G')">
+                    <td>Produit G</td>
+                    <td>Produit d'éclairage solaire</td>
+                    <td>TOP</td>
+                    <td>Projecteur</td>
+                    <td>Carré</td>
+                </tr>
+                <tr data-marque="LEC" onclick="showPopup('Produit H')">
+                    <td>Produit H</td>
+                    <td>Produit d'éclairage routier fonctionnel</td>
+                    <td>Latéral</td>
+                    <td>Luminaire</td>
+                    <td>Rond</td>
+                </tr>
+                <tr data-marque="HESS" onclick="showPopup('Produit I')">
+                    <td>Produit I</td>
+                    <td>Produit d'éclairage urbain</td>
+                    <td>Encastré</td>
+                    <td>Module et retrofit</td>
+                    <td>Carré</td>
+                </tr>
+                <tr data-marque="Ragni" onclick="showPopup('Produit J')">
+                    <td>Produit J</td>
+                    <td>Produit autre</td>
+                    <td>Main courante</td>
+                    <td>Borne</td>
+                    <td>Linéaire</td>
+                </tr>
+                <tr data-marque="LEC" onclick="showPopup('Produit K')">
+                    <td>Produit K</td>
+                    <td>Produit d'éclairage solaire</td>
+                    <td>Porté</td>
+                    <td>Projecteur</td>
+                    <td>Rond</td>
+                </tr>
+                <tr data-marque="HESS" onclick="showPopup('Produit L')">
+                    <td>Produit L</td>
+                    <td>Produit d'éclairage urbain</td>
+                    <td>Suspended</td>
+                    <td>Colonne</td>
+                    <td>Linéaire</td>
+                </tr>
+                <tr data-marque="Ragni" onclick="showPopup('Produit M')">
+                    <td>Produit M</td>
+                    <td>Produit d'éclairage routier fonctionnel</td>
+                    <td>TOP</td>
+                    <td>Luminaire</td>
+                    <td>Carré</td>
+                </tr>
+                <tr data-marque="LEC" onclick="showPopup('Produit N')">
+                    <td>Produit N</td>
+                    <td>Produit d'éclairage urbain</td>
+                    <td>Latéral</td>
+                    <td>Borne</td>
+                    <td>Rond</td>
+                </tr>
+                <tr data-marque="HESS" onclick="showPopup('Produit O')">
+                    <td>Produit O</td>
+                    <td>Produit d'éclairage solaire</td>
+                    <td>Encastré</td>
+                    <td>Projecteur</td>
+                    <td>Linéaire</td>
+                </tr>
+                <tr data-marque="Ragni" onclick="showPopup('Produit P')">
+                    <td>Produit P</td>
+                    <td>Produit autre</td>
+                    <td>Main courante</td>
+                    <td>Module et retrofit</td>
+                    <td>Carré</td>
+                </tr>
+                <tr data-marque="LEC" onclick="showPopup('Produit Q')">
+                    <td>Produit Q</td>
+                    <td>Produit d'éclairage routier fonctionnel</td>
+                    <td>Porté</td>
+                    <td>Luminaire</td>
+                    <td>Rond</td>
+                </tr>
+                <tr data-marque="HESS" onclick="showPopup('Produit R')">
+                    <td>Produit R</td>
+                    <td>Produit d'éclairage urbain</td>
+                    <td>Suspended</td>
+                    <td>Colonne</td>
+                    <td>Linéaire</td>
+                </tr>
+            </tbody>            
+        </table>
+    </div>
+
+    <!-- Pop-up -->
+    <div id="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2 id="popup-title">Nom du produit</h2>
+            <p>Sous quel format souhaitez-vous extraire les données ?</p>
+            <button onclick="exportData('CSV')">CSV</button>
+            <button onclick="exportData('Dialux')">Dialux</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
+
+    <script>
+        function afficherTableau() {
+            var marque = document.getElementById('marque-select').value;
+            var tableauSection = document.getElementById('tableau-section');
+            tableauSection.style.display = marque ? 'block' : 'none';
+            filterTable(); // Applique un filtre à l'affichage
+        }
+
+        function filterTable() {
+            var marque = document.getElementById('marque-select').value;
+            var filterName = document.getElementById('filter-name').value.toLowerCase();
+            var filterApplication = document.getElementById('filter-application').value;
+            var filterMontage = document.getElementById('filter-montage').value;
+            var filterProduit = document.getElementById('filter-produit').value;
+            var filterForme = document.getElementById('filter-forme').value;
+
+            var rows = document.querySelectorAll('#product-table tbody tr');
+            rows.forEach(function(row) {
+                var nomProduit = row.cells[0].textContent.toLowerCase();
+                var application = row.cells[1].textContent;
+                var montage = row.cells[2].textContent;
+                var produit = row.cells[3].textContent;
+                var forme = row.cells[4].textContent;
+                var rowMarque = row.getAttribute('data-marque');
+
+                var matchMarque = marque === rowMarque;
+                var matchName = nomProduit.includes(filterName);
+                var matchApplication = !filterApplication || application === filterApplication;
+                var matchMontage = !filterMontage || montage === filterMontage;
+                var matchProduit = !filterProduit || produit === filterProduit;
+                var matchForme = !filterForme || forme === filterForme;
+
+                if (matchMarque && matchName && matchApplication && matchMontage && matchProduit && matchForme) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        function showPopup(productName) {
+            document.getElementById('popup-title').textContent = productName;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function exportData(format) {
+            alert('Exportation des données en format : ' + format);
+            closePopup(); // Ferme la pop-up après l'exportation
+        }
+    </script>
+</body>
+</html>

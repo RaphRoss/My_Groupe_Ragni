@@ -110,18 +110,22 @@ nav ul li a:hover {
 
 .language-flags a {
   display: inline-block;
+  color: white; /* Le texte des abréviations sera en blanc */
+  font-size: 1.2em;
+  font-weight: 100;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.flag {
-  width: 25px;
-  height: auto;
-  border-radius: 3px;
-  transition: transform 0.2s ease;
+.language-flags a:hover {
+  color: #d3d3d3; /* Changement de couleur au survol */
 }
 
-.flag:hover {
-  transform: scale(1.1);
+.language-flags a.active {
+  text-decoration: underline; /* Souligner la langue active */
+  color: #ffffff; /* S'assurer que la couleur reste blanche */
 }
+
 
 /* Adaptation pour mobile */
 @media (max-width: 768px) {
@@ -130,8 +134,7 @@ nav ul li a:hover {
     right: 15px;
   }
 
-  .flag {
-    width: 20px;
+  .language-flags a {
+    font-size: 1em; /* Réduire légèrement la taille du texte sur mobile */
   }
 }
-

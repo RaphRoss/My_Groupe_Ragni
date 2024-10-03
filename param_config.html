@@ -3,18 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Groupe Ragni</title>
+    <title>Paramètre Configurateurs</title>
     <link rel="stylesheet" type="text/css" href="css/param_config_styles.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" crossorigin="anonymous" />
     <script src="components/header.js" type="text/javascript" defer></script>
     <script src="components/footer.js" type="text/javascript" defer></script>
+    <script src="components/param_admin.js" defer></script>
 </head>
 <body>
     <!-- Header -->
     <header-component></header-component>
 
     <!-- Main Content -->
+    <main id="main-content">
+        <section id="admin-dashboard" class="admin-interface">
+            <h1>Administration</h1>
+            <div class="admin-section">
+                <h2>Interface Possibilités</h2>
+                <p>Création de nouvelles possibilités techniques</p>
+                <button class="btn-admin" onclick="showForm('possibiliés')">Accéder à l'interface Possibilités</button>
+            </div>
+            <div class="admin-section">
+                <h2>Interface Commerce</h2>
+                <p>Gestion des prix et des tarifs dans l'interface Commerce.</p>
+                <button class="btn-admin" onclick="showForm('commerce')">Accéder à l'interface Commerce</button>
+            </div>
+            <div class="admin-section">
+                <h2>Interface Marketing Produit</h2>
+                <p>Gestion des visuels et des informations marketing des produits.</p>
+                <button class="btn-admin" onclick="showForm('marketing')">Accéder à l'interface Marketing Produit</button>
+            </div>
+            <div class="admin-section">
+                <h2>Interface Nomenclature</h2>
+                <p>Gestion des nomenclatures des produits.</p>
+                <button class="btn-admin" onclick="showForm('nomenclature')">Accéder à l'interface Nomenclature</button>
+            </div>
+            <div class="admin-section">
+                <h2>Interface Test</h2>
+                <p>Lancement des tests et vérification des configurations avant la mise en production.</p>
+                <button class="btn-admin" onclick="showForm('test')">Accéder à l'interface Test</button>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer-component></footer-component>

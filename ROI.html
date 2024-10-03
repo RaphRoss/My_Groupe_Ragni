@@ -52,12 +52,21 @@
 
         <!-- Section: Informations solutions -->
         <div id="solution-info" class="content-section">
-            <h2>Informations sur les solutions</h2>
+            <div class="title-button-container">
+                <h2>Informations sur les solutions</h2>
+                <button id="add-solution-btn">Ajouter une solution</button>
+            </div>
             <div class="solution-container">
                 <div class="solution">
-                    <h3>Solution 1</h3>
-                    <label for="luminaire1-name">Nom du luminaire</label>
-                    <input type="text" id="luminaire1-name" value="Solution 1">
+                    <img src="img/trash.png" alt="Supprimer" class="trash-icon" onclick="removeSolution(this)"/>
+                    <label for="solution-name">Nom de la solution :</label>
+                    <input type="text" id="solution-name" value="Solution 1">
+                    
+                    <div class="luminaire-container">
+                        <label for="luminaire1-name">Nom du luminaire</label>
+                        <input type="text" id="luminaire1-name" value="Luminaire 1">
+                    </div>
+                    <button class="add-luminaire-btn" onclick="addLuminaire(this)">Ajouter un luminaire</button>
 
                     <label for="luminaire1-tech">Technologie utilisée</label>
                     <select id="luminaire1-tech">
@@ -93,20 +102,30 @@
                     </select>
 
                     <label for="luminaire1-options">Options supplémentaires</label>
-                    <div>
-                        <input type="checkbox" id="luminaire1-gradation" value="gradation">
+                    <div class="checkbox-group">
                         <label for="luminaire1-gradation">Gradation horaire</label>
+                        <input type="checkbox" id="luminaire1-gradation" value="gradation">
                     </div>
-                    <div>
-                        <input type="checkbox" id="luminaire1-deductions" value="deductions">
+                    <div class="checkbox-group">
                         <label for="luminaire1-deductions">Deductions CEE (€)</label>
+                        <input type="checkbox" id="luminaire1-deductions" value="deductions">
+                    </div>
+                    <div class="checkbox-group">
+                        <label for="luminaire1-seve">SEVe</label>
+                        <input type="checkbox" id="luminaire1-seve" value="seve">
                     </div>
                 </div>
 
                 <div class="solution">
-                    <h3>Solution 2</h3>
-                    <label for="luminaire2-name">Nom du luminaire</label>
-                    <input type="text" id="luminaire2-name" value="Solution 2">
+                    <img src="img/trash.png" alt="Supprimer" class="trash-icon" onclick="removeSolution(this)" />
+                    <label for="solution-name">Nom de la solution :</label>
+                    <input type="text" id="solution-name" value="Solution 2">
+                    
+                    <div class="luminaire-container">
+                        <label for="luminaire1-name">Nom du luminaire</label>
+                        <input type="text" id="luminaire1-name" value="Luminaire 1">
+                    </div>
+                    <button class="add-luminaire-btn" onclick="addLuminaire(this)">Ajouter un luminaire</button>
 
                     <label for="luminaire2-tech">Technologie utilisée</label>
                     <select id="luminaire2-tech">
@@ -142,13 +161,17 @@
                     </select>
 
                     <label for="luminaire2-options">Options supplémentaires</label>
-                    <div>
-                        <input type="checkbox" id="luminaire2-gradation" value="gradation">
-                        <label for="luminaire2-gradation">Gradation horaire</label>
+                    <div class="checkbox-group">
+                        <label for="luminaire1-gradation">Gradation horaire</label>
+                        <input type="checkbox" id="luminaire1-gradation" value="gradation">
                     </div>
-                    <div>
-                        <input type="checkbox" id="luminaire2-deductions" value="deductions">
-                        <label for="luminaire2-deductions">Deductions CEE (€)</label>
+                    <div class="checkbox-group">
+                        <label for="luminaire1-deductions">Deductions CEE (€)</label>
+                        <input type="checkbox" id="luminaire1-deductions" value="deductions">
+                    </div>
+                    <div class="checkbox-group">
+                        <label for="luminaire1-seve">SEVe</label>
+                        <input type="checkbox" id="luminaire1-seve" value="seve">
                     </div>
                 </div>
             </div>
@@ -286,39 +309,6 @@
 
     <!-- Footer -->
     <footer-component></footer-component>
-
-    <script>
-        function openTab(evt, tabId) {
-            const sections = document.getElementsByClassName('content-section');
-            for (let i = 0; i < sections.length; i++) {
-                sections[i].style.display = 'none';
-                sections[i].classList.remove('active');
-            }
-
-            const tabs = document.getElementsByClassName('tab-link');
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove('active');
-            }
-
-            document.getElementById(tabId).style.display = 'block';
-            document.getElementById(tabId).classList.add('active');
-            evt.currentTarget.classList.add('active');
-        }
-
-        function increment(inputId) {
-            const input = document.getElementById(inputId);
-            input.value = parseInt(input.value) + 1;
-        }
-
-        function decrement(inputId) {
-            const input = document.getElementById(inputId);
-            if (input.value > 0) {
-                input.value = parseInt(input.value) - 1;
-            }
-        }
-
-        document.getElementById('project-info').style.display = 'block';
-    </script>
+    <script src="components/roi.js" type="text/javascript" defer></script>
 </body>
-
 </html>

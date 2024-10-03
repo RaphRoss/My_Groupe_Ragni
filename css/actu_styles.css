@@ -62,13 +62,13 @@ h2 {
 .news-form input[type="text"]:focus,
 .news-form input[type="date"]:focus,
 .news-form textarea:focus {
-    border-color: #4CAF50;
+    border-color: #263C47;
 }
 
 .news-form button {
     width: 100%;
     padding: 15px;
-    background-color: #4CAF50;
+    background-color: #263C47;
     color: white;
     border: none;
     border-radius: 5px;
@@ -78,14 +78,14 @@ h2 {
 }
 
 .news-form button:hover {
-    background-color: #388E3C;
+    background-color: #263C47;
 }
 
 /* Drag & Drop Image Upload */
 #drop-area {
     margin-bottom: 15px;
     padding: 20px;
-    border: 2px dashed #4CAF50;
+    border: 2px dashed #263C47;
     border-radius: 8px;
     text-align: center;
     background-color: #fff;
@@ -95,7 +95,7 @@ h2 {
 
 #drop-area:hover {
     background-color: #f0fff0;
-    border-color: #81C784;
+    border-color: #263C90;
 }
 
 #preview-image {

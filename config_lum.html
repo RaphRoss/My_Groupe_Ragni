@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/config_lum_styles.css" rel="stylesheet" type="text/css" />
+    <script src="components/header.js" type="text/javascript" defer></script>
+    <script src="components/footer.js" type="text/javascript" defer></script>
+    <title>Configurateurs Luminaire</title>
+</head>
+<body>
+    <!-- Header -->
+    <header-component></header-component>
+
+    <!-- Main content -->
+    <main>
+        <section class="top-banner">
+            <h1>Configurateur Luminaire</h1>
+            <div class="title">
+                <form>
+                    <label for="luminaire">Luminaire:</label>
+                    <select id="luminaire" name="luminaire" onchange="updateInfo()">
+                        <option value="Bento">Bento</option>
+                        <option value="Tekk">Tekk</option>
+                    </select>
+                    <label for="quantite">Quantité:</label>
+                    <input type="number" id="quantite" name="quantite" value="1" onchange="updateInfo()" />
+                    <label for="code">Code à charger:</label>
+                    <input type="text" id="code" name="code" placeholder="Entrez le code" onchange="updateInfo()" />
+                </form>
+            </div>
+        </section>
+
+        <div class="grid-container">
+            <div class="caracteristiques">
+                <section class="config-section">
+                    <h2>Caractéristiques extérieures</h2>
+                    <form>
+                        <!-- Taille -->
+                        <label for="taille">Taille :</label>
+                        <div id="taille">
+                            <input type="radio" id="size-s" name="taille" value="S" onchange="updateInfo()">
+                            <label for="size-s">S</label>
+                            <input type="radio" id="size-s-plus" name="taille" value="S Plus" onchange="updateInfo()">
+                            <label for="size-s-plus">S Plus</label>
+                            <input type="radio" id="size-s-v2" name="taille" value="S V2" onchange="updateInfo()">
+                            <label for="size-s-v2">S V2</label>
+                            <input type="radio" id="size-m" name="taille" value="M" onchange="updateInfo()">
+                            <label for="size-m">M</label>
+                            <input type="radio" id="size-l" name="taille" value="L" onchange="updateInfo()">
+                            <label for="size-l">L</label>
+                        </div>
+
+                        <!-- Version -->
+                        <label for="version">Version :</label>
+                        <div id="version">
+                            <input type="radio" id="version-060" name="version" value="060" onchange="updateInfo()">
+                            <label for="version-060">Ø60</label>
+                            <input type="radio" id="version-076" name="version" value="076" onchange="updateInfo()">
+                            <label for="version-076">Ø76</label>
+                        </div>
+
+                        <!-- Forme / Option Protection -->
+                        <label for="forme">Forme / Option Protection :</label>
+                        <select id="forme" name="forme" onchange="updateInfo()">
+                            <option value="Polycarbonate IK10">Polycarbonate IK10</option>
+                            <option value="Verre IK08">Verre IK08</option>
+                        </select>
+
+                        <!-- Matériau : Choix matériau -->
+                        <label for="materiau">Matériau :</label>
+                        <select id="materiau" name="materiau" onchange="updateInfo()">
+                            <option value="Aluminium">Aluminium</option>
+                        </select>
+
+                        <!-- Couleur -->
+                        <label for="couleur">Couleur :</label>
+                        <input type="text" id="couleur" name="couleur" placeholder="Standard" onchange="updateInfo()">
+
+                        <!-- Hors Standard -->
+                        <label for="hors-standard">Hors Standard :</label>
+                        <select id="hors-standard" name="hors-standard" onchange="updateInfo()">
+                            <option value="RAL 1001">RAL 1001</option>
+                        </select>
+
+                        <!-- Option Bord de Mer -->
+                        <label for="bord-de-mer">Option Bord de Mer :</label>
+                        <input type="checkbox" id="bord-de-mer" name="bord-de-mer" onchange="updateInfo()">
+                    </form>
+                </section>
+
+                <section class="config-section">
+                    <h2>Caractéristiques techniques</h2>
+                    <form>
+                        <label for="led">Nombre de LED :</label>
+                        <div id="led">
+                            <input type="radio" id="led-12-5050" name="led" value="12 LED (5050)" onchange="updateInfo()">
+                            <label for="led-12-5050">12 LED (5050)</label>
+                            <input type="radio" id="led-16-5050" name="led" value="16 LED (5050)" onchange="updateInfo()">
+                            <label for="led-16-5050">16 LED (5050)</label>
+                            <input type="radio" id="led-12-6p2s" name="led" value="12 LED 6P/2S" onchange="updateInfo()">
+                            <label for="led-12-6p2s">12 LED 6P/2S</label>
+                            <input type="radio" id="led-24-4p6s" name="led" value="24 LED 4P/6S" onchange="updateInfo()">
+                            <label for="led-24-4p6s">24 LED 4P/6S</label>
+                        </div>
+
+                        <label for="temperature">Température :</label>
+                        <div id="temperature">
+                            <input type="radio" id="temp-3000k" name="temperature" value="3000K" onchange="updateInfo()">
+                            <label for="temp-3000k">3000K</label>
+                            <input type="radio" id="temp-4000k" name="temperature" value="4000K" onchange="updateInfo()">
+                            <label for="temp-4000k">4000K</label>
+                        </div>
+
+                        <label for="distribution">Distribution Photométrique :</label>
+                        <div id="distribution">
+                            <input type="radio" id="dist-asy10" name="distribution" value="ASY10" onchange="updateInfo()">
+                            <label for="dist-asy10">ASY10</label>
+                            <input type="radio" id="dist-asy13" name="distribution" value="ASY13" onchange="updateInfo()">
+                            <label for="dist-asy13">ASY13</label>
+                            <input type="radio" id="dist-asy14" name="distribution" value="ASY14" onchange="updateInfo()">
+                            <label for="dist-asy14">ASY14</label>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="config-section">
+                    <h2>Caractéristiques driver</h2>
+                    <form>
+                        <label for="classe-electrique">Classe Électrique :</label>
+                        <div id="classe-electrique">
+                            <input type="radio" id="cli" name="classe-electrique" value="CLI" onchange="updateInfo()">
+                            <label for="cli">CLI</label>
+                            <input type="radio" id="clii" name="classe-electrique" value="CLII" onchange="updateInfo()">
+                            <label for="clii">CLII</label>
+                        </div>
+
+                        <label for="type-driver">Type de Driver :</label>
+                        <div id="type-driver">
+                            <input type="radio" id="full-prog" name="type-driver" value="Full prog" onchange="updateInfo()">
+                            <label for="full-prog">Full prog</label>
+                            <input type="radio" id="d4i" name="type-driver" value="D4i" onchange="updateInfo()">
+                            <label for="d4i">D4i</label>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <div class="information">
+                <h2>Zone d'Informations</h2>
+                <div id="info-area">
+                    <!-- Informations à remplir en temps réel -->
+                    <!-- Ajout des boutons -->
+                    <div class="button-container">
+                        <button id="validate-btn" onclick="window.location.href='devis.html'"><i class="fas fa-check"></i> Valider</button>
+                        <button id="reset-btn"><i class="fas fa-sync-alt"></i> Réinitialiser</button>
+                        <button id="pdf-btn"><i class="fas fa-file-pdf"></i> PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer-component></footer-component>
+
+    <script src="components/config_lum.js"></script>
+    <script>
+        document.getElementById('validate-btn').addEventListener('click', function() {
+            localStorage.setItem('fromConfigLum', 'true');
+            window.location.href = 'devis.html';
+        });
+    </script>
+</body>
+</html>

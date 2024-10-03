@@ -76,12 +76,15 @@ select {
 }
 
 .solution-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
     gap: 20px;
 }
 
 .solution {
-    flex: 1;
+    width: 300px;
+    box-sizing: border-box;
     background-color: #fff;
     padding: 20px;
     border: 1px solid #ccc;
@@ -113,7 +116,6 @@ input[type="number"] {
     background-color: #0056b3;
 }
 
-/* Styles pour afficher les métriques en 2 lignes */
 .result-metrics-inline {
     display: flex;
     flex-direction: column;
@@ -131,12 +133,10 @@ input[type="number"] {
     margin-right: 20px;
 }
 
-/* Forcer le nombre et l'unité à rester sur la même ligne */
 .nowrap {
     white-space: nowrap;
 }
 
-/* Responsive design: alignement en colonne pour petits écrans */
 @media (max-width: 768px) {
     .result-metrics-row {
         flex-direction: column;
@@ -170,23 +170,22 @@ input[type="number"] {
     margin-top: 20px;
 }
 
-/* Styles pour les images des graphiques */
 .graph-container {
     margin-bottom: 40px;
     position: relative;
     width: 100%;
-    height: auto; /* Ajuste la hauteur automatiquement en fonction de la largeur */
-    max-width: 800px; /* Vous pouvez ajuster cette valeur pour vos besoins */
+    height: auto;
+    max-width: 800px;
     overflow: hidden;
-    border-radius: 8px; /* Ajoute des coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour plus de profondeur */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .graph-container img {
     width: 100%;
-    height: auto; /* Conserve le ratio d'aspect de l'image */
-    object-fit: cover; /* Assure que l'image couvre le conteneur sans déformation */
-    transition: transform 0.3s ease; /* Ajoute une transition pour l'effet de survol */
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
 .pdf-download {
@@ -209,35 +208,78 @@ input[type="number"] {
     background-color: #0056b3;
 }
 
-/* Section de coût d'exploitation */
-.exploitation-cost, .energy-consumption {
+.exploitation-cost,
+.energy-consumption {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
-/* Styles pour les images */
-.exploitation-image img, .energy-image img {
+.exploitation-image img,
+.energy-image img {
     max-width: 300px;
     height: auto;
     margin-right: 20px;
 }
 
-/* Styles pour le texte */
-.exploitation-text, .energy-text {
+.exploitation-text,
+.energy-text {
     flex: 1;
 }
 
-/* Responsive design: alignement vertical sur petits écrans */
 @media (max-width: 768px) {
-    .exploitation-cost, .energy-consumption {
+    .exploitation-cost,
+    .energy-consumption {
         flex-direction: column;
         align-items: center;
     }
 
-    .exploitation-image img, .energy-image img {
+    .exploitation-image img,
+    .energy-image img {
         margin-bottom: 10px;
     }
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+#solution-info input[type="text"] {
+    margin-right: 10px;
+}
+
+.title-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#add-solution-btn {
+    margin-left: 10px;
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-solution-btn:hover {
+    background-color: #0056b3;
+}
+
+.trash-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    float: right;
 }
 

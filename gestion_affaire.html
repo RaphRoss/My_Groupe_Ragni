@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/gestion_affaire_styles.css" rel="stylesheet" type="text/css" />
+  <script src="components/header.js" type="text/javascript" defer></script>
+  <script src="components/footer.js" type="text/javascript" defer></script>
+  <title>Gestion des Affaires</title>
+</head>
+<body>
+  <!-- Header -->
+  <header-component></header-component>
+
+  <!-- Content -->
+  <main>
+    <h1>Gestion des Affaires</h1>
+
+    <!-- Bouton Créer une affaire -->
+    <button onclick="window.location.href='affaire.html'">Créer une affaire</button>
+
+    <!-- Tableau des affaires avec filtres -->
+    <h2>Liste des Affaires</h2>
+    <table id="tableAffaires">
+      <!-- Ligne des filtres -->
+      <tr class="filter-row">
+          <td><input type="text" id="nomAffaire" placeholder="Nom de l'affaire" oninput="filterTable()"></td>
+          <td><input type="text" id="ville" placeholder="Ville" oninput="filterTable()"></td>
+          <td><input type="text" id="codePostal" placeholder="Code postal" oninput="filterTable()"></td>
+          <td><input type="text" id="pays" placeholder="Pays" oninput="filterTable()"></td>
+          <td>
+              <select id="prix" onchange="sortTable(4)">
+                  <option value="asc">Prix croissant</option>
+                  <option value="desc">Prix décroissant</option>
+              </select>
+          </td>
+          <td>
+              <select id="date" onchange="sortTable(5)">
+                  <option value="recent">Date récente</option>
+                  <option value="ancienne">Date ancienne</option>
+              </select>
+          </td>
+      </tr>
+  
+      <!-- Ligne des en-têtes -->
+      <tr>
+          <th>Nom de l'affaire</th>
+          <th>Ville</th>
+          <th>Code postal</th>
+          <th>Pays</th>
+          <th>Prix</th>
+          <th>Date</th>
+      </tr>
+  
+      <!-- Exemple de lignes de données -->
+      <tr>
+          <td><a href="modif_affaire.html">Affaire 1</a></td>
+          <td>Nice</td>
+          <td>06000</td>
+          <td>France</td>
+          <td>5000€</td>
+          <td>2024-10-01</td>
+      </tr>
+      <tr>
+          <td><a href="#">Affaire 2</td>
+          <td>Paris</td>
+          <td>75000</td>
+          <td>France</td>
+          <td>12000€</td>
+          <td>2024-09-30</td>
+      </tr>
+      <!-- Nouvelles affaires ajoutées -->
+      <tr>
+          <td><a href="#">Affaire 3</td>
+          <td>Madrid</td>
+          <td>28001</td>
+          <td>Espagne</td>
+          <td>8000€</td>
+          <td>2024-09-28</td>
+      </tr>
+      <tr>
+          <td><a href="#">Affaire 4</td>
+          <td>Berlin</td>
+          <td>10115</td>
+          <td>Allemagne</td>
+          <td>15000€</td>
+          <td>2024-09-25</td>
+      </tr>
+  </table>  
+  
+  
+  </main>
+
+  <!-- Footer -->
+  <footer-component></footer-component>
+
+  <script>
+    function filterTable() {
+      let nomAffaire = document.getElementById("nomAffaire").value.toLowerCase();
+      let ville = document.getElementById("ville").value.toLowerCase();
+      let codePostal = document.getElementById("codePostal").value.toLowerCase();
+      let pays = document.getElementById("pays").value.toLowerCase();
+      let table = document.getElementById("tableAffaires");
+      let rows = table.getElementsByTagName("tr");
+
+      for (let i = 2; i < rows.length; i++) {  // Commence à 2 pour ignorer la ligne des filtres et les en-têtes
+        let nomCell = rows[i].getElementsByTagName("td")[0];
+        let villeCell = rows[i].getElementsByTagName("td")[1];
+        let codePostalCell = rows[i].getElementsByTagName("td")[2];
+        let paysCell = rows[i].getElementsByTagName("td")[3];
+
+        let nomText = nomCell.textContent.toLowerCase();
+        let villeText = villeCell.textContent.toLowerCase();
+        let codePostalText = codePostalCell.textContent.toLowerCase();
+        let paysText = paysCell.textContent.toLowerCase();
+
+        // Filtrer par les critères
+        if (nomText.indexOf(nomAffaire) > -1 &&
+            villeText.indexOf(ville) > -1 &&
+            codePostalText.indexOf(codePostal) > -1 &&
+            paysText.indexOf(pays) > -1) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+      }
+    }
+
+    function sortTable(colIndex) {
+      let table = document.getElementById("tableAffaires");
+      let rows = Array.from(table.getElementsByTagName("tr")).slice(2); // Ignorer la ligne des filtres et les en-têtes
+      let select = colIndex === 4 ? document.getElementById("prix") : document.getElementById("date");
+      let direction = select.value;
+
+      rows.sort((a, b) => {
+        let aText = a.getElementsByTagName("td")[colIndex].textContent;
+        let bText = b.getElementsByTagName("td")[colIndex].textContent;
+
+        if (colIndex === 4) {  // Prix (colonne 4)
+          aText = parseFloat(aText.replace("€", ""));
+          bText = parseFloat(bText.replace("€", ""));
+        }
+
+        if (colIndex === 5) {  // Date (colonne 5)
+          aText = new Date(aText);
+          bText = new Date(bText);
+        }
+
+        if (direction === "asc" || direction === "recent") {
+          return aText > bText ? 1 : -1;
+        } else {
+          return aText < bText ? 1 : -1;
+        }
+      });
+
+      rows.forEach(row => table.appendChild(row));
+    }
+  </script>
+</body>
+</html>

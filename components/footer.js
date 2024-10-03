@@ -17,6 +17,7 @@ footerTemplate.innerHTML = `
                         <li><a href="https://www.novea-energies.com/"><img src="img/06_2023Logo_Novea_large_texte-blanc_RVB.png" alt="Novea énergies"></a></li>
                         <li><a href="https://sev-e.com/"><img src="img/06_2023Logo_SEVe_large_texte-blanc_RVB.png" alt="Seve"></a></li>
                         <li><a href="https://www.vulkan.eu/en/"><img src="img/06_2024Logo_Vulkan_large_texte-blanc_RVB.png" alt="Vulkan"></a></li>
+                        <li><a href="https://www.lec.fr"><img src="img/06_2024Logo_LEC_large_texte-blanc_RVB.png" alt="Lec"></a></li>
                     </ul>
                 </div>
                 <div class="unique-footer-application">
@@ -24,11 +25,11 @@ footerTemplate.innerHTML = `
                     <ul class="unique-applications-liste">
                         <li><a href="b2b.html">B2B</a></li>
                         <li><a href="config.html">Configurateurs groupe</a></li>
-                        <li><a href="#">Export de Données Produits</a></li>
+                        <li><a href="export_donne.html">Export de Données Produits</a></li>
                         <li><a href="https://www.mynovea.com/">My_Novea</a></li>
                         <li><a href="ROI.html">ROI groupe</a></li>
                         <li><a href="SAV.html">Gestion SAV</a></li>
-                        <li><a href="actu.html">Admin : Destion des actualités</a></li>
+                        <li><a href="actu.html">Admin : Gestion des actualités</a></li>
                     </ul>
                 </div>
                 <div class="unique-footer-contact">
@@ -36,20 +37,19 @@ footerTemplate.innerHTML = `
                     <ul class="unique-contact-liste">
                         <li><a href="https://groupe-ragni.cockpit-itsm.com/ssp/home">Contactez-nous</a></li>
                         <li><p>Via nos tickets cockpit vous pouvez nous contacter ou faire n'importe quelle demande, elle sera prise en charge le plus rapidement possible.</p></li>
-                        <li><p>Changer le mode de vue : </p><a href="#"> Salarié ;</a><a href="#">Agent ;</a><a href="#">Admin</a></li>
                     </ul>
                 </div>
                 <div class="unique-footer-reseaux">
                     <h3>Nos réseaux</h3>
                     <ul class="unique-reseaux-liste">
-                        <li><a href="#"><img src="img/reseau1.png" alt="Reseau 1"></a></li>
-                        <li><a href="#"><img src="img/reseau2.png" alt="Reseau 2"></a></li>
-                        <li><a href="#"><img src="img/reseau3.png" alt="Reseau 3"></a></li>
+                        <li><a href="https://www.linkedin.com/company/groupe-ragni/"><img src="img/img_wall1.png" alt="Reseau 1"></a></li>
+                        <li><a href="https://www.linkedin.com/company/groupe-ragni/"><img src="img/img_wall2.png" alt="Reseau 2"></a></li>
+                        <li><a href="https://www.linkedin.com/company/groupe-ragni/"><img src="img/img_wall3.png" alt="Reseau 3"></a></li>
                     </ul>
                 </div>
             </div>
             <div class="unique-footer-bottom">
-                © 2024 RAGNI. Tous droits réservés. | Version 1.4.5 18/09/2024
+                © 2024 RAGNI. Tous droits réservés. | Version 1.8.0 03/10/2024
             </div>
         </footer>
     </div>

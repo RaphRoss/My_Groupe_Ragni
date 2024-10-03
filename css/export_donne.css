@@ -1,0 +1,256 @@
+/* Style de base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center; /* Centrer les textes */
+}
+
+/* Header */
+header {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem; /* Augmenté pour donner plus d'importance */
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background-color: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 0.75rem;
+    margin-top: auto;
+}
+
+/* Contenu principal */
+main {
+    flex-grow: 1;
+    padding: 2rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #263C47; /* Accent de couleur plus fort */
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Style du tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem auto; /* Ajout d'une marge gauche et droite */
+    border-radius: 8px; /* Arrondis du tableau */
+    overflow: hidden; /* Pour appliquer les arrondis */
+    table-layout: fixed;
+    background-color: white;
+}
+
+th, td {
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+th {
+    background-color: #263C47; /* Nouvelle couleur */
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+tr:hover {
+    background-color: #e5e7eb;
+}
+
+td {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Boutons de filtre */
+button {
+    padding: 0.75rem 1.5rem;
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0.5rem 0;
+}
+
+button:hover {
+    background-color: #3b82f6;
+}
+
+input[type="text"], select {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.375rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+input[type="text"]:focus, select:focus {
+    border-color: #1e3a8a;
+    outline: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    table, th, td {
+        font-size: 0.875rem;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Choix de marque plus gros */
+select {
+    font-size: 1.25rem; /* Taille augmentée */
+    font-weight: bold;
+    color: #263C47; /* Couleur accentuée */
+}
+
+/* Container avec marges */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Styles pour le tableau */
+table {
+    width: 80%; /* Réduction de la largeur du tableau */
+    margin: 2rem auto; /* Centre le tableau horizontalement */
+    border-radius: 8px;
+    overflow: hidden;
+    table-layout: fixed;
+    background-color: white;
+}
+
+/* Styles pour le sélecteur de marques */
+#marque-select {
+    width: 200px; /* Réduction de la largeur du sélecteur de marques */
+    padding: 0.5rem; /* Ajustement du padding pour l'esthétique */
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.375rem;
+    margin: 1rem auto; /* Centre horizontalement */
+    display: block;
+}
+
+/* Styles pour les champs de texte et sélecteurs */
+input[type="text"], select {
+    padding: 0.5rem; /* Ajustement du padding pour être cohérent */
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.375rem;
+    width: 90%; /* Réduction de la largeur des filtres */
+    margin: 1rem auto; /* Centre horizontalement */
+}
+
+input[type="text"]:focus, select:focus {
+    border-color: #1e3a8a;
+    outline: none;
+}
+
+/* Styles pour centrer le choix de marque */
+div {
+    text-align: center;
+}
+
+/* Pop-up */
+.popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Pour s'assurer qu'il est au-dessus des autres éléments */
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+}
+
+.popup-content .close {
+    cursor: pointer;
+    color: red;
+    font-size: 20px;
+    float: right;
+}
+
+.popup-content button {
+    margin: 5px;
+    padding: 10px;
+}
+
+/* Styles pour la pop-up */
+#popup {
+    display: none; /* Masqué par défaut */
+    position: fixed; /* Position fixe */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Centrage */
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000; /* Assure que la pop-up est au-dessus des autres éléments */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#popup-overlay {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fond sombre derrière la pop-up */
+    z-index: 999; /* Assure que le fond est derrière la pop-up */
+}

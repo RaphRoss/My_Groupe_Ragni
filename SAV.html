@@ -30,7 +30,7 @@
                     <input type="text" id="filterInput" placeholder="Filtrer par..." oninput="filterTable()">
                 </div>
                 <div class="dashboard-buttons">
-                    <a href="#" class="btn">Analyser</a>
+                    <a href="#" class="btn">Analyse</a>
                     <a href="nouveau_sav.html" class="btn">Déclarer</a>
                 </div>
             </div>
@@ -39,100 +39,85 @@
                 <thead>
                     <tr>
                         <th>N° de ticket</th>
-                        <th>Agence</th>
+                        <th>Marque</th>
                         <th>Date</th>
+                        <th>Déclarant</th>
+                        <th>N° d'affaire</th>
+                        <th>Commune (Pays/code postale)</th>
                         <th>Statut</th>
-                        <th>Suivi</th>
+                        <th>Type de Sav</th>
+                        <th>Libelle</th>
+                        <th>Attribue</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Tickets ici -->
                     <tr onclick="showDetails('1')">
-                        <td>#001</td>
-                        <td>Paris</td>
-                        <td>01/09/2024</td>
-                        <td>Terminé</td>
-                        <td>Enquête envoyée</td>
-                    </tr>
-                    <tr id="details-1" class="details">
-                        <td colspan="5">
-                            <p><strong>N° de ticket:</strong> #001</p>
-                            <p><strong>Date:</strong> 01/09/2024</p>
-                            <p><strong>Agence:</strong> Paris</p>
-                            <p><strong>Problème:</strong> Délai de livraison</p>
-                            <p><strong>Suivi:</strong> Enquête envoyée</p>
-                            <a href="#" class="btn">Déclencher une Enquête</a>
-                            <a href="#" class="btn">Réalisée</a>
-                        </td>
+                        <td>#00001</td>
+                        <td>NOVEA</td>
+                        <td>07/10/2023</td>
+                        <td>AREL</td>
+                        <td>2360</td>
+                        <td>LYON(69) - FRA</td>
+                        <td>New</td>
+                        <td>ND</td>
+                        <td>*</td>
+                        <td>DMA</td>
                     </tr>
                     <!-- Ticket Example 2 -->
                     <tr onclick="showDetails('2')">
-                        <td>#002</td>
-                        <td>Lyon</td>
-                        <td>02/09/2024</td>
+                        <td>#00002</td>
+                        <td>RAGNI</td>
+                        <td>08/11/2023</td>
+                        <td>B-LIGHT</td>
+                        <td>114587</td>
+                        <td>NANTES(49) - FRA</td>
                         <td>En cours</td>
-                        <td>Suivi initial</td>
-                    </tr>
-                    <tr id="details-2" class="details">
-                        <td colspan="5">
-                            <p><strong>N° de ticket:</strong> #002</p>
-                            <p><strong>Date:</strong> 02/09/2024</p>
-                            <p><strong>Agence:</strong> Lyon</p>
-                            <p><strong>Problème:</strong> Produit défectueux</p>
-                            <p><strong>Suivi:</strong> Suivi initial</p>
-                            <a href="#" class="btn">Réalisée</a>
-                        </td>
+                        <td>ND</td>
+                        <td>*</td>
+                        <td>CBO</td>
                     </tr>
                     <!-- Ticket Example 3 -->
                     <tr onclick="showDetails('3')">
-                        <td>#003</td>
-                        <td>Marseille</td>
-                        <td>03/09/2024</td>
+                        <td>#00003</td>
+                        <td>RAGNI</td>
+                        <td>08/01/2024</td>
+                        <td>NOVEA CDI</td>
+                        <td>194</td>
+                        <td>ABIJAN - CDI</td>
                         <td>Terminé</td>
-                        <td>Enquête non envoyée</td>
-                    </tr>
-                    <tr id="details-3" class="details">
-                        <td colspan="5">
-                            <p><strong>N° de ticket:</strong> #003</p>
-                            <p><strong>Date:</strong> 03/09/2024</p>
-                            <p><strong>Agence:</strong> Marseille</p>
-                            <p><strong>Problème:</strong> Erreur de facturation</p>
-                            <p><strong>Suivi:</strong> Enquête non envoyée</p>
-                            <a href="#" class="btn">Déclencher une Enquête</a>
-                            <a href="#" class="btn">Réalisée</a>
-                        </td>
+                        <td>Sous Garantie</td>
+                        <td>driver LED</td>
+                        <td>CBO</td>
                     </tr>
                     <!-- Ticket Example 4 -->
                     <tr onclick="showDetails('4')">
-                        <td>#004</td>
-                        <td>Bordeaux</td>
-                        <td>04/09/2024</td>
-                        <td>En cours</td>
-                        <td>Attente client</td>
-                    </tr>
-                    <tr id="details-4" class="details">
-                        <td colspan="5">
-                            <p><strong>N° de ticket:</strong> #004</p>
-                            <p><strong>Date:</strong> 04/09/2024</p>
-                            <p><strong>Agence:</strong> Bordeaux</p>
-                            <p><strong>Problème:</strong> Retard de livraison</p>
-                            <p><strong>Suivi:</strong> Attente client</p>
-                            <a href="#" class="btn">Réalisée</a>
-                        </td>
+                        <td>#00004</td>
+                        <td>NOVEA</td>
+                        <td>28/09/2024</td>
+                        <td>AREL</td>
+                        <td>49970</td>
+                        <td>BESANCON(25) - FRA</td>
+                        <td>Terminer</td>
+                        <td>Geste commercial</td>
+                        <td>PV330W</td>
+                        <td>DMA</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <script>
-    function showDetails(ticketId) {
-        var details = document.getElementById('details-' + ticketId);
-        var allDetails = document.querySelectorAll('.details');
-        allDetails.forEach(detail => detail.style.display = 'none');
-        details.style.display = 'block';
-    }
+    <!-- Popup for ticket details -->
+    <div class="popup" id="ticketPopup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">×</span>
+            <h2>Détails du Ticket</h2>
+            <div id="ticketDetails"></div>
+        </div>
+    </div>
 
+    <script>
     function filterTable() {
         const input = document.getElementById("filterInput");
         const filter = input.value.toUpperCase();
@@ -151,6 +136,68 @@
                 row.style.display = "none";
             }
         });
+    }
+
+    function showDetails(ticketId) {
+        // Récupérer les détails du ticket (simulation)
+        const ticketDetails = {
+            '1': `
+                N° de ticket : #00001
+                Marque : NOVEA
+                Date : 07/10/2023
+                Déclarant : AREL
+                N° d'affaire : 2360
+                Commune : LYON(69) - FRA
+                Statut : New
+                Type de Sav : ND
+                Libelle : *
+                Attribué à : DMA
+            `,
+            '2': `
+                N° de ticket : #00002
+                Marque : RAGNI
+                Date : 08/11/2023
+                Déclarant : B-LIGHT
+                N° d'affaire : 114587
+                Commune : NANTES(49) - FRA
+                Statut : En cours
+                Type de Sav : ND
+                Libelle : *
+                Attribué à : CBO
+            `,
+            '3': `
+                N° de ticket : #00003
+                Marque : RAGNI
+                Date : 08/01/2024
+                Déclarant : NOVEA CDI
+                N° d'affaire : 194
+                Commune : ABIJAN - CDI
+                Statut : Terminé
+                Type de Sav : Sous Garantie
+                Libelle : driver LED
+                Attribué à : CBO
+            `,
+            '4': `
+                N° de ticket : #00004
+                Marque : NOVEA
+                Date : 28/09/2024
+                Déclarant : AREL
+                N° d'affaire : 49970
+                Commune : BESANCON(25) - FRA
+                Statut : Terminé
+                Type de Sav : Geste commercial
+                Libelle : PV330W
+                Attribué à : DMA
+            `
+        };
+
+        // Afficher les détails dans la popup
+        document.getElementById('ticketDetails').innerText = ticketDetails[ticketId];
+        document.getElementById('ticketPopup').style.display = 'flex'; // Afficher la popup
+    }
+
+    function closePopup() {
+        document.getElementById('ticketPopup').style.display = 'none'; // Cacher la popup
     }
     </script>
 

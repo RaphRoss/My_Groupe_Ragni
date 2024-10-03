@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choisir votre marque</title>
+    <script src="components/header.js" type="text/javascript" defer></script>
+    <script src="components/footer.js" type="text/javascript" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espace entre les boutons */
+            margin-top: 20px;
+        }
+
+        .brand-button {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .brand-button img {
+    width: 150px;  /* Ajustez la largeur selon vos besoins */
+    height: auto;  /* Maintient le ratio de l'image */
+    max-height: 200px;  /* Limite la hauteur pour que toutes les images soient de la même taille */
+    object-fit: contain;  /* Assure que l'image s'adapte sans déformation */
+}
+    </style>
+</head>
+<body>
+    <header-component></header-component>
+
+    <h1>Veuillez choisir votre marque</h1>
+    
+    <div class="button-container">
+        <button class="brand-button" onclick="window.location.href='config_lum.html'">
+            <img src="img/01_2023Logo_Ragni_RVB.png" alt="Ragni">
+        </button>
+        <button class="brand-button" onclick="showComingSoon('Hess')">
+            <img src="img/01_2024Logo_Hess_RVB.png" alt="Hess">
+        </button>
+        <button class="brand-button" onclick="showComingSoon('Novea')">
+            <img src="img/01_2023Logo_Novea_RVB.png" alt="Novea">
+        </button>
+        <button class="brand-button" onclick="showComingSoon('Lec')">
+            <img src="img/01_2024Logo_LEC_RVB.png" alt="Lec">
+        </button>
+        <button class="brand-button" onclick="showComingSoon('Vulkan')">
+            <img src="img/01_2024Logo_Vulkan_RVB.png" alt="Vulkan">
+        </button>
+    </div>
+
+    <footer-component></footer-component>
+    <script>
+        function redirectToRagni() {
+            window.location.href = "config_lum.html"; // Remplacez par l'URL de la page Ragni
+        }
+
+        function showComingSoon(brand) {
+            alert(brand + " coming soon");
+        }
+    </script>
+</body>
+</html>
