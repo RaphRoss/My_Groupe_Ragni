@@ -49,7 +49,7 @@ footerTemplate.innerHTML = `
                 </div>
             </div>
             <div class="unique-footer-bottom">
-                © 2024 RAGNI. Tous droits réservés. | Version 1.8.0 03/10/2024
+                © 2024 GROUPE RAGNI. Tous droits réservés. | Version 2.2.0 11/10/2024
             </div>
         </footer>
     </div>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Ticket</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.info-block {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+label {
+    font-weight: bold;
+}
+
+.description p,
+.attachments p {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.discussion-thread {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.discussion p {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.survey button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.survey button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Détails du Ticket</h1>
+        </header>
+
+        <section class="ticket-info">
+            <div class="info-block">
+                <label>N° d'affaire:</label>
+                <span>005632</span>
+            </div>
+            <div class="info-block">
+                <label>Commune d'installation:</label>
+                <span>Angers (49) - France</span>
+            </div>
+        </section>
+
+        <section class="description">
+            <h2>Descriptif de la demande:</h2>
+            <p>Pourquoi, Combien, Comment?</p>
+        </section>
+
+        <section class="attachments">
+            <h2>Pièces jointes:</h2>
+            <p>Photos, Pièces d'achat (BL/Facture)</p>
+        </section>
+
+        <section class="discussion-thread">
+            <h2>Fil de discussion:</h2>
+            <div class="discussion">
+                <p><strong>Arnaud:</strong> Voici : 3 rue de grenades, 49550 VOILA</p>
+                <p><strong>David:</strong> Ci-dessous le numéro de suivi du colis DSV : 015349616199</p>
+            </div>
+        </section>
+
+        <section class="ticket-followup">
+            <div class="info-block">
+                <label>Suivi par:</label>
+                <span>David</span>
+            </div>
+            <div class="info-block">
+                <label>État:</label>
+                <span>New</span>
+            </div>
+            <div class="info-block">
+                <label>Date de clôture:</label>
+                <span>19/11/2023</span>
+            </div>
+            <div class="info-block">
+                <label>Type de SAV:</label>
+                <span>Sous Garantie</span>
+            </div>
+        </section>
+
+        <section class="survey">
+            <h2>Enquête de satisfaction:</h2>
+            <button onclick="triggerSurvey()">Déclencher</button>
+            <button onclick="markSurveyCompleted()">Réalisée</button>
+        </section>
+
+    </div>
+
+    <script>
+        function triggerSurvey() {
+    alert('Enquête de satisfaction déclenchée !');
+}
+
+function markSurveyCompleted() {
+    alert('Enquête marquée comme réalisée.');
+}
+    </script>
+</body>
+</html>

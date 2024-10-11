@@ -31,9 +31,18 @@
 
     <!-- Section des filtres et tableau -->
     <div id="tableau-section" style="display:none;">
+        <p id="row-count"></p> <!-- Ajout de l'élément pour afficher les lignes -->
+        <div id="info-lignes">
+            <span id="filtered-rows-count"></span>
+            <label style="margin-left: 20px;">
+                Sélectionner toutes les lignes <input type="checkbox" id="select-all-checkbox" onchange="selectAllRows()">
+            </label>
+            <button id="show-popup-button" onclick="showPopup('Produits sélectionnées', event)" class="styled-button">Extraire les données sélectionnées</button>
+        </div>
         <table id="product-table">
             <thead>
                 <tr>
+                    <th> </th>
                     <th>
                         <input type="text" id="filter-name" placeholder="Nom produit" onkeyup="filterTable()">
                     </th>
@@ -45,6 +54,7 @@
                             <option value="Produit d'éclairage solaire">Produit d'éclairage solaire</option>
                             <option value="Produit autre">Produit autre</option>
                         </select>
+                        <span class="filter-icon" id="icon-application"><i class="fas fa-filter"></i></span>
                     </th>
                     <th>
                         <select id="filter-montage" onchange="filterTable()">
@@ -56,6 +66,7 @@
                             <option value="Main courante">Main courante</option>
                             <option value="Suspendu">Suspendu</option>
                         </select>
+                        <span class="filter-icon" id="icon-application"><i class="fas fa-filter"></i></span>
                     </th>
                     <th>
                         <select id="filter-produit" onchange="filterTable()">
@@ -66,6 +77,7 @@
                             <option value="Projecteur">Projecteur</option>
                             <option value="Module et retrofit">Module et retrofit</option>
                         </select>
+                        <span class="filter-icon" id="icon-application"><i class="fas fa-filter"></i></span>
                     </th>
                     <th>
                         <select id="filter-forme" onchange="filterTable()">
@@ -74,137 +86,149 @@
                             <option value="Rond">Rond</option>
                             <option value="Linéaire">Linéaire</option>
                         </select>
+                        <span class="filter-icon" id="icon-application"><i class="fas fa-filter"></i></span>
                     </th>
-                </tr>
-                <tr>
-                    <th>Nom produit</th>
-                    <th>Application</th>
-                    <th>Type de montage</th>
-                    <th>Type produit</th>
-                    <th>Forme</th>
                 </tr>
             </thead>
             <tbody>
-                <tr data-marque="Ragni" onclick="showPopup('Produit A')">
+                <tr data-marque="Ragni" onclick="showPopup('Produit A', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit A</td>
                     <td>Produit d'éclairage urbain</td>
                     <td>TOP</td>
                     <td>Luminaire</td>
                     <td>Rond</td>
                 </tr>
-                <tr data-marque="LEC" onclick="showPopup('Produit B')">
+                <tr data-marque="LEC" onclick="showPopup('Produit B', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit B</td>
                     <td>Produit d'éclairage solaire</td>
                     <td>Latéral</td>
                     <td>Borne</td>
                     <td>Carré</td>
                 </tr>
-                <tr data-marque="HESS" onclick="showPopup('Produit C')">
+                <tr data-marque="HESS" onclick="showPopup('Produit C', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit C</td>
                     <td>Produit autre</td>
                     <td>Encastré</td>
                     <td>Projecteur</td>
                     <td>Linéaire</td>
                 </tr>
-                <tr data-marque="Ragni" onclick="showPopup('Produit D')">
+                <tr data-marque="Ragni" onclick="showPopup('Produit D', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit D</td>
                     <td>Produit d'éclairage routier fonctionnel</td>
                     <td>Main courante</td>
                     <td>Luminaire</td>
                     <td>Carré</td>
                 </tr>
-                <tr data-marque="LEC" onclick="showPopup('Produit E')">
+                <tr data-marque="LEC" onclick="showPopup('Produit E', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit E</td>
                     <td>Produit autre</td>
                     <td>Porté</td>
                     <td>Module et retrofit</td>
                     <td>Rond</td>
                 </tr>
-                <tr data-marque="HESS" onclick="showPopup('Produit F')">
+                <tr data-marque="HESS" onclick="showPopup('Produit F', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit F</td>
                     <td>Produit d'éclairage urbain</td>
                     <td>Suspended</td>
                     <td>Colonne</td>
                     <td>Linéaire</td>
                 </tr>
-                <tr data-marque="Ragni" onclick="showPopup('Produit G')">
+                <tr data-marque="Ragni" onclick="showPopup('Produit G', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit G</td>
                     <td>Produit d'éclairage solaire</td>
                     <td>TOP</td>
                     <td>Projecteur</td>
                     <td>Carré</td>
                 </tr>
-                <tr data-marque="LEC" onclick="showPopup('Produit H')">
+                <tr data-marque="LEC" onclick="showPopup('Produit H', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit H</td>
                     <td>Produit d'éclairage routier fonctionnel</td>
                     <td>Latéral</td>
                     <td>Luminaire</td>
                     <td>Rond</td>
                 </tr>
-                <tr data-marque="HESS" onclick="showPopup('Produit I')">
+                <tr data-marque="HESS" onclick="showPopup('Produit I', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit I</td>
                     <td>Produit d'éclairage urbain</td>
                     <td>Encastré</td>
                     <td>Module et retrofit</td>
                     <td>Carré</td>
                 </tr>
-                <tr data-marque="Ragni" onclick="showPopup('Produit J')">
+                <tr data-marque="Ragni" onclick="showPopup('Produit J', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit J</td>
                     <td>Produit autre</td>
                     <td>Main courante</td>
                     <td>Borne</td>
                     <td>Linéaire</td>
                 </tr>
-                <tr data-marque="LEC" onclick="showPopup('Produit K')">
+                <tr data-marque="LEC" onclick="showPopup('Produit K', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit K</td>
                     <td>Produit d'éclairage solaire</td>
                     <td>Porté</td>
                     <td>Projecteur</td>
                     <td>Rond</td>
                 </tr>
-                <tr data-marque="HESS" onclick="showPopup('Produit L')">
+                <tr data-marque="HESS" onclick="showPopup('Produit L', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit L</td>
                     <td>Produit d'éclairage urbain</td>
                     <td>Suspended</td>
                     <td>Colonne</td>
                     <td>Linéaire</td>
                 </tr>
-                <tr data-marque="Ragni" onclick="showPopup('Produit M')">
+                <tr data-marque="Ragni" onclick="showPopup('Produit M', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit M</td>
                     <td>Produit d'éclairage routier fonctionnel</td>
                     <td>TOP</td>
                     <td>Luminaire</td>
                     <td>Carré</td>
                 </tr>
-                <tr data-marque="LEC" onclick="showPopup('Produit N')">
+                <tr data-marque="LEC" onclick="showPopup('Produit N', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit N</td>
                     <td>Produit d'éclairage urbain</td>
                     <td>Latéral</td>
                     <td>Borne</td>
                     <td>Rond</td>
                 </tr>
-                <tr data-marque="HESS" onclick="showPopup('Produit O')">
+                <tr data-marque="HESS" onclick="showPopup('Produit O', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit O</td>
                     <td>Produit d'éclairage solaire</td>
                     <td>Encastré</td>
                     <td>Projecteur</td>
                     <td>Linéaire</td>
                 </tr>
-                <tr data-marque="Ragni" onclick="showPopup('Produit P')">
+                <tr data-marque="Ragni" onclick="showPopup('Produit P', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit P</td>
                     <td>Produit autre</td>
                     <td>Main courante</td>
                     <td>Module et retrofit</td>
                     <td>Carré</td>
                 </tr>
-                <tr data-marque="LEC" onclick="showPopup('Produit Q')">
+                <tr data-marque="LEC" onclick="showPopup('Produit Q', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit Q</td>
                     <td>Produit d'éclairage routier fonctionnel</td>
                     <td>Porté</td>
                     <td>Luminaire</td>
                     <td>Rond</td>
                 </tr>
-                <tr data-marque="HESS" onclick="showPopup('Produit R')">
+                <tr data-marque="HESS" onclick="showPopup('Produit R', event)">
+                    <td><input type="checkbox" class="row-checkbox" onclick="selectOne(this);"></td>
                     <td>Produit R</td>
                     <td>Produit d'éclairage urbain</td>
                     <td>Suspended</td>
@@ -246,15 +270,18 @@
             var filterForme = document.getElementById('filter-forme').value;
 
             var rows = document.querySelectorAll('#product-table tbody tr');
+            var totalRows = rows.length;
+            var visibleRows = 0;
+
             rows.forEach(function(row) {
-                var nomProduit = row.cells[0].textContent.toLowerCase();
-                var application = row.cells[1].textContent;
-                var montage = row.cells[2].textContent;
-                var produit = row.cells[3].textContent;
-                var forme = row.cells[4].textContent;
+                var nomProduit = row.cells[1].textContent.toLowerCase(); // Index 1 pour le nom produit
+                var application = row.cells[2].textContent; // Index 2 pour l'application
+                var montage = row.cells[3].textContent; // Index 3 pour le type de montage
+                var produit = row.cells[4].textContent; // Index 4 pour le type produit
+                var forme = row.cells[5].textContent; // Index 5 pour la forme
                 var rowMarque = row.getAttribute('data-marque');
 
-                var matchMarque = marque === rowMarque;
+                var matchMarque = marque === rowMarque || marque === ''; // Affiche toutes les marques si aucune n'est sélectionnée
                 var matchName = nomProduit.includes(filterName);
                 var matchApplication = !filterApplication || application === filterApplication;
                 var matchMontage = !filterMontage || montage === filterMontage;
@@ -263,13 +290,22 @@
 
                 if (matchMarque && matchName && matchApplication && matchMontage && matchProduit && matchForme) {
                     row.style.display = '';
+                    visibleRows++; // Compter les lignes visibles
                 } else {
                     row.style.display = 'none';
                 }
             });
+
+            // Met à jour le texte pour afficher le nombre de lignes filtrées
+            document.getElementById('filtered-rows-count').textContent = visibleRows + ' lignes affichées sur ' + totalRows;
         }
 
-        function showPopup(productName) {
+        function showPopup(productName, event) {
+            // Vérifiez si l'événement provient d'un clic sur une case à cocher
+            if (event.target.tagName.toLowerCase() === 'input' && event.target.type === 'checkbox') {
+                return; // Ne rien faire si c'est un clic sur une case à cocher
+            }
+            
             document.getElementById('popup-title').textContent = productName;
             document.getElementById('popup').style.display = 'block';
         }
@@ -281,6 +317,30 @@
         function exportData(format) {
             alert('Exportation des données en format : ' + format);
             closePopup(); // Ferme la pop-up après l'exportation
+        }
+
+        function selectAllRows() {
+            var rows = document.querySelectorAll('#product-table tbody tr');
+            var selectAllCheckbox = document.getElementById('select-all-checkbox');
+
+            rows.forEach(function(row) {
+                if (selectAllCheckbox.checked) {
+                    row.cells[0].querySelector('input').checked = true; // Cocher toutes les cases
+                    row.classList.add('hover');  // Ajouter la classe "hover" à toutes les lignes
+                } else {
+                    row.cells[0].querySelector('input').checked = false; // Décocher toutes les cases
+                    row.classList.remove('hover'); // Retirer la classe "hover" à toutes les lignes
+                }
+            });
+        }
+
+        function selectOne(checkbox) {
+            var row = checkbox.closest('tr');
+            if (checkbox.checked) {
+                row.classList.add('hover'); // Ajouter la classe "hover" lorsque la case est cochée
+            } else {
+                row.classList.remove('hover'); // Retirer la classe "hover" lorsque la case est décochée
+            }
         }
     </script>
 </body>

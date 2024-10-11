@@ -80,7 +80,6 @@ function addLuminaire(element) {
             <input type="number" id="luminaire1-power" value="250">
             <button class="btn-increment" onclick="increment('luminaire1-power')">+</button>
         </div>
-        <!-- Ajoutez ici les autres champs du luminaire -->
     `;
     
     luminaireContainer.appendChild(newLuminaire);

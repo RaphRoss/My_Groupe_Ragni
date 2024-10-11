@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/SAV_styles.css">
     <script src="components/header.js" type="text/javascript" defer></script>
     <script src="components/footer.js" type="text/javascript" defer></script>
+    <script src="components/SAV.js" type="text/javascript" defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -30,81 +31,113 @@
                     <input type="text" id="filterInput" placeholder="Filtrer par..." oninput="filterTable()">
                 </div>
                 <div class="dashboard-buttons">
-                    <a href="#" class="btn">Analyse</a>
+                    <a href="analyse_sav.html" class="btn">Analyse</a>
                     <a href="nouveau_sav.html" class="btn">Déclarer</a>
                 </div>
             </div>
 
-            <table id="dataTable">
-                <thead>
-                    <tr>
-                        <th>N° de ticket</th>
-                        <th>Marque</th>
-                        <th>Date</th>
-                        <th>Déclarant</th>
-                        <th>N° d'affaire</th>
-                        <th>Commune (Pays/code postale)</th>
-                        <th>Statut</th>
-                        <th>Type de Sav</th>
-                        <th>Libelle</th>
-                        <th>Attribue</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Tickets ici -->
-                    <tr onclick="showDetails('1')">
-                        <td>#00001</td>
-                        <td>NOVEA</td>
-                        <td>07/10/2023</td>
-                        <td>AREL</td>
-                        <td>2360</td>
-                        <td>LYON(69) - FRA</td>
-                        <td>New</td>
-                        <td>ND</td>
-                        <td>*</td>
-                        <td>DMA</td>
-                    </tr>
-                    <!-- Ticket Example 2 -->
-                    <tr onclick="showDetails('2')">
-                        <td>#00002</td>
-                        <td>RAGNI</td>
-                        <td>08/11/2023</td>
-                        <td>B-LIGHT</td>
-                        <td>114587</td>
-                        <td>NANTES(49) - FRA</td>
-                        <td>En cours</td>
-                        <td>ND</td>
-                        <td>*</td>
-                        <td>CBO</td>
-                    </tr>
-                    <!-- Ticket Example 3 -->
-                    <tr onclick="showDetails('3')">
-                        <td>#00003</td>
-                        <td>RAGNI</td>
-                        <td>08/01/2024</td>
-                        <td>NOVEA CDI</td>
-                        <td>194</td>
-                        <td>ABIJAN - CDI</td>
-                        <td>Terminé</td>
-                        <td>Sous Garantie</td>
-                        <td>driver LED</td>
-                        <td>CBO</td>
-                    </tr>
-                    <!-- Ticket Example 4 -->
-                    <tr onclick="showDetails('4')">
-                        <td>#00004</td>
-                        <td>NOVEA</td>
-                        <td>28/09/2024</td>
-                        <td>AREL</td>
-                        <td>49970</td>
-                        <td>BESANCON(25) - FRA</td>
-                        <td>Terminer</td>
-                        <td>Geste commercial</td>
-                        <td>PV330W</td>
-                        <td>DMA</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                N° de Ticket 
+                                <span class="filter-icon" id="icon-ticket" onclick="sortTable(0)">
+                                    <i class="fas fa-filter"></i>
+                                </span>
+                            </th>
+                            <th>
+                                <select id="filter-marque" onchange="filterTable()">
+                                    <option value="">Marque</option>
+                                    <option value="Ragni">Ragni</option>
+                                    <option value="Novea">Novea</option>
+                                </select>
+                            </th>
+                            <th>
+                                Date  
+                                <span class="filter-icon" id="icon-date" onclick="sortTable(1)">
+                                    <i class="fas fa-filter"></i>
+                                </span>
+                            </th>
+                            <th><input type="text" id="filter-declarant" placeholder="Déclarant" onkeyup="filterTable()"></th>
+                            <th><input type="text" id="filter-affaire" placeholder="N° affaire" onkeyup="filterTable()"></th>
+                            <th><input type="text" id="filter-ville" placeholder="Commune (Pays/code postale)" onkeyup="filterTable()"></th>
+                            <th>
+                                <select id="filter-satus" onchange="filterTable()">
+                                    <option value="">Statut</option>
+                                    <option value="New">New</option>
+                                    <option value="En cours">En cours</option>
+                                    <option value="Terminer">Terminer</option>
+                                </select>
+                            </th>
+                            <th>
+                                <select id="filter-type" onchange="filterTable()">
+                                    <option value="">Type de Sav</option>
+                                    <option value="ND">ND</option>
+                                    <option value="Sous Garantie">Sous Garantie</option>
+                                    <option value="Geste commercial">Geste commercial</option>
+                                </select>
+                            </th>
+                            <th><input type="text" id="filter-libelle" placeholder="Libelle" onkeyup="filterTable()"></th>
+                            <th><input type="text" id="filter-attribue" placeholder="Attribue" onkeyup="filterTable()"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Tickets ici -->
+                        <tr onclick="gotodetaille()">
+                            <td>#00001</td>
+                            <td>NOVEA</td>
+                            <td>07/10/2023</td>
+                            <td>AREL</td>
+                            <td>2360</td>
+                            <td>LYON(69) - FRA</td>
+                            <td>New</td>
+                            <td>ND</td>
+                            <td>*</td>
+                            <td>DMA</td>
+                        </tr>
+                        <!-- Ticket Example 2 -->
+                        <tr onclick="showDetails('2')">
+                            <td>#00002</td>
+                            <td>RAGNI</td>
+                            <td>08/11/2023</td>
+                            <td>B-LIGHT</td>
+                            <td>114587</td>
+                            <td>NANTES(49) - FRA</td>
+                            <td>En cours</td>
+                            <td>ND</td>
+                            <td>*</td>
+                            <td>CBO</td>
+                        </tr>
+                        <!-- Ticket Example 3 -->
+                        <tr onclick="showDetails('3')">
+                            <td>#00003</td>
+                            <td>RAGNI</td>
+                            <td>08/01/2024</td>
+                            <td>NOVEA CDI</td>
+                            <td>194</td>
+                            <td>ABIJAN - CDI</td>
+                            <td>Terminer</td>
+                            <td>Sous Garantie</td>
+                            <td>driver LED</td>
+                            <td>CBO</td>
+                        </tr>
+                        <!-- Ticket Example 4 -->
+                        <tr onclick="showDetails('4')">
+                            <td>#00004</td>
+                            <td>NOVEA</td>
+                            <td>28/09/2024</td>
+                            <td>AREL</td>
+                            <td>49970</td>
+                            <td>BESANCON(25) - FRA</td>
+                            <td>Terminer</td>
+                            <td>Geste commercial</td>
+                            <td>PV330W</td>
+                            <td>DMA</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -116,90 +149,6 @@
             <div id="ticketDetails"></div>
         </div>
     </div>
-
-    <script>
-    function filterTable() {
-        const input = document.getElementById("filterInput");
-        const filter = input.value.toUpperCase();
-        const table = document.getElementById("dataTable");
-        const rows = table.querySelectorAll("tbody tr");
-
-        rows.forEach(row => {
-            const cells = row.getElementsByTagName("td");
-            let textContent = "";
-            for (let i = 0; i < cells.length; i++) {
-                textContent += cells[i].textContent || cells[i].innerText;
-            }
-            if (textContent.toUpperCase().indexOf(filter) > -1) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
-    }
-
-    function showDetails(ticketId) {
-        // Récupérer les détails du ticket (simulation)
-        const ticketDetails = {
-            '1': `
-                N° de ticket : #00001
-                Marque : NOVEA
-                Date : 07/10/2023
-                Déclarant : AREL
-                N° d'affaire : 2360
-                Commune : LYON(69) - FRA
-                Statut : New
-                Type de Sav : ND
-                Libelle : *
-                Attribué à : DMA
-            `,
-            '2': `
-                N° de ticket : #00002
-                Marque : RAGNI
-                Date : 08/11/2023
-                Déclarant : B-LIGHT
-                N° d'affaire : 114587
-                Commune : NANTES(49) - FRA
-                Statut : En cours
-                Type de Sav : ND
-                Libelle : *
-                Attribué à : CBO
-            `,
-            '3': `
-                N° de ticket : #00003
-                Marque : RAGNI
-                Date : 08/01/2024
-                Déclarant : NOVEA CDI
-                N° d'affaire : 194
-                Commune : ABIJAN - CDI
-                Statut : Terminé
-                Type de Sav : Sous Garantie
-                Libelle : driver LED
-                Attribué à : CBO
-            `,
-            '4': `
-                N° de ticket : #00004
-                Marque : NOVEA
-                Date : 28/09/2024
-                Déclarant : AREL
-                N° d'affaire : 49970
-                Commune : BESANCON(25) - FRA
-                Statut : Terminé
-                Type de Sav : Geste commercial
-                Libelle : PV330W
-                Attribué à : DMA
-            `
-        };
-
-        // Afficher les détails dans la popup
-        document.getElementById('ticketDetails').innerText = ticketDetails[ticketId];
-        document.getElementById('ticketPopup').style.display = 'flex'; // Afficher la popup
-    }
-
-    function closePopup() {
-        document.getElementById('ticketPopup').style.display = 'none'; // Cacher la popup
-    }
-    </script>
 
     <!-- Footer -->
     <footer-component></footer-component>

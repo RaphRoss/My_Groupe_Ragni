@@ -254,3 +254,24 @@ div {
     background: rgba(0, 0, 0, 0.5); /* Fond sombre derrière la pop-up */
     z-index: 999; /* Assure que le fond est derrière la pop-up */
 }
+
+tr.hover {
+    background-color: #e5e7eb; /* Style appliqué lors de la sélection de toutes les lignes */
+}
+
+.styled-button {
+    background-color: #1d4ed8; /* Bleu vif */
+    margin-left: 20px;          /* Marge à gauche pour l'espacement */
+    color: white;              /* Texte en blanc */
+    border: none;              /* Pas de bordure */
+    padding: 10px 20px;        /* Espacement interne pour un bouton confortable */
+    font-size: 16px;           /* Taille du texte */
+    border-radius: 5px;        /* Angles arrondis */
+    cursor: pointer;           /* Curseur de pointeur au survol */
+    transition: background-color 0.3s ease; /* Transition douce pour les effets de hover */
+}
+
+/* Style de base pour le hover */
+.hovered {
+    background-color: #f0f8ff; /* Couleur de survol pour la ligne */
+  }

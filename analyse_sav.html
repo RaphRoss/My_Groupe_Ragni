@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="anonymous" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>Analyse SAV</title>
+        <link rel="stylesheet" href="css/SAV_styles.css">
+        <script src="components/header.js" type="text/javascript" defer></script>
+        <script src="components/footer.js" type="text/javascript" defer></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            .dashboard {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: 20px;
+                padding: 20px;
+            }
+            .dashboard-item {
+                border: 1px solid #ddd;
+                padding: 15px;
+                border-radius: 8px;
+            }
+            .large-dashboard-item {
+                grid-column: span 2;
+            }
+            h1 {
+                text-align: center;
+                font-size: 36px;
+                margin-bottom: 30px;
+            }
+            h2 {
+                font-size: 18px;
+                text-align: center;
+            }
+            .chart-container {
+                width: 100%;
+                height: 400px;
+                text-align: center;
+            }
+            .legend {
+                font-size: 14px;
+                text-align: left;
+            }
+            .indicators {
+                grid-column: span 3;
+                text-align: right;
+                font-size: 14px;
+                color: red;
+            }
+        </style>
+    </head>
+        <body>
+            <!-- Header -->
+            <header-component></header-component>
+
+            <h1>Analyse SAV</h1> <!-- Ajout du titre principal -->
+            <div class="dashboard">
+                <div class="dashboard-item">
+                    <h2>Nbr de SAV par Marque</h2>
+                    <div class="chart-container">
+                        <canvas id="chartMarque"></canvas>
+                    </div>
+                </div>
+                <div class="dashboard-item">
+                    <h2>Type de SAV</h2>
+                    <div class="chart-container">
+                        <canvas id="chartType"></canvas>
+                    </div>
+                </div>
+                <div class="dashboard-item">
+                    <h2>Nbr de SAV par agence</h2>
+                    <div class="chart-container">
+                        <canvas id="chartAgence"></canvas>
+                    </div>
+                </div>
+
+                <!-- Large Section for Enquête SAV -->
+                <div class="dashboard-item large-dashboard-item">
+                    <h2>Résultat enquête SAV</h2>
+                    <div class="chart-container">
+                        <canvas id="chartEnquete"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Liens vers Chart.js pour les graphiques -->
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                const ctxMarque = document.getElementById('chartMarque').getContext('2d');
+                const chartMarque = new Chart(ctxMarque, {
+                    type: 'bar',
+                    data: {
+                        labels: ['HESS', 'NOVEA', 'RAGNI'],
+                        datasets: [{
+                            label: 'Nombre de SAV',
+                            data: [1, 3, 2],
+                            backgroundColor: ['#4e79a7', '#f28e2b', '#e15759']
+                        }]
+                    }
+                });
+
+                const ctxType = document.getElementById('chartType').getContext('2d');
+                const chartType = new Chart(ctxType, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Geste commercial', 'ND', 'Sous Garantie'],
+                        datasets: [{
+                            label: 'Type de SAV',
+                            data: [50, 33, 17],
+                            backgroundColor: ['#76b7b2', '#59a14f', '#edc949']
+                        }]
+                    }
+                });
+
+                const ctxAgence = document.getElementById('chartAgence').getContext('2d');
+                const chartAgence = new Chart(ctxAgence, {
+                    type: 'bar',
+                    data: {
+                        labels: ['AREL', 'B-LIGHT', 'NOVEA BEN', 'NOVEA CDI', 'V. CAPLA'],
+                        datasets: [{
+                            label: 'Nombre de SAV',
+                            data: [2, 1, 2, 2, 1],
+                            backgroundColor: ['#ff9da7', '#9c755f', '#bab0ac', '#4e79a7', '#f28e2b']
+                        }]
+                    }
+                });
+
+                const ctxEnquete = document.getElementById('chartEnquete').getContext('2d');
+                const chartEnquete = new Chart(ctxEnquete, {
+                    type: 'bar',
+                    data: {
+                        labels: [
+                            'Les explications fournies sont claires / explanations are clear',
+                            'Le délai de réponse est correct / the response time is correct',
+                            'Les interlocuteurs savent se montrer disponibles et compétents / interlocutors are proficient',
+                            'Mon problème est résolu / my problem is solved'
+                        ],
+                        datasets: [{
+                            label: 'Complètement d\'accord',
+                            data: [70, 65, 75, 80],
+                            backgroundColor: '#ff9f40'
+                        }, {
+                            label: 'D\'accord',
+                            data: [20, 25, 15, 10],
+                            backgroundColor: '#ffcd56'
+                        }, {
+                            label: 'Pas d\'accord',
+                            data: [5, 5, 7, 6],
+                            backgroundColor: '#ff6384'
+                        }, {
+                            label: 'Pas du tout d\'accord',
+                            data: [3, 3, 2, 2],
+                            backgroundColor: '#36a2eb'
+                        }, {
+                            label: 'Ne sait pas',
+                            data: [2, 2, 1, 2],
+                            backgroundColor: '#9966ff'
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y', // Inversion des axes pour avoir des barres horizontales
+                        responsive: true,
+                        scales: {
+                            x: {
+                                beginAtZero: true
+                            }
+                        },
+                        legend: {
+                            position: 'top'
+                        },
+                        title: {
+                            display: true,
+                            text: 'Résultat enquête SAV'
+                        }
+                    }
+                });
+            </script>
+
+            <!-- Footer -->
+            <footer-component></footer-component>
+        </body>
+</html>
