@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <link href="css/actu_styles.css" rel="stylesheet" type="text/css" />
+  <script src="components/header.js" type="text/javascript" defer></script>
+  <script src="components/footer.js" type="text/javascript" defer></script>
+  <title>Actualités</title>
+</head>
+<body>
+  <!-- Header -->
+  <header-component></header-component>
+
+  <!-- Main Content -->
+  <main>
+    <section class="news-table-container">
+      <h2>Actualités</h2>
+      <section class="news-header">
+        <input type="text" id="search-input" placeholder="Rechercher une actualité" />
+      </section>
+      <table id="news-table">
+        <tbody>
+          <tr>
+            <td><img src="img/logo_Ragni.png" alt="Image actualité 1" style="width: 100px;"></td>
+            <td>Lancement de la nouvelle gamme de produits <i class="fas fa-thumbtack pin-icon"></i></td>
+            <td>Le <span class="highlight">@Groupe Ragni</span> dévoile une nouvelle gamme innovante de solutions d'éclairage urbain.</td>
+            <td>5 septembre 2024</td>
+            <td>
+              <a href="#" class="ext-link">En savoir plus</a> <br>
+              <a href="#" class="ext-link">Autre lien</a>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="img/logo_Ragni.png" alt="Image actualité 2" style="width: 100px;"></td>
+            <td>Partenariat avec une entreprise internationale <span class="urgent-tag">#URGENT</span></td>
+            <td>Nous sommes fiers d'annoncer un partenariat stratégique avec un leader mondial de la technologie.</td>
+            <td>22 août 2024</td>
+            <td>
+              <a href="#" class="ext-link">En savoir plus</a> <br>
+              <a href="#" class="ext-link">Autre lien</a>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="img/logo_Ragni.png" alt="Image actualité 3" style="width: 100px;"></td>
+            <td>Participation à la Conférence mondiale de l’éclairage</td>
+            <td>Le Groupe Ragni a participé à la conférence annuelle, présentant des innovations durables.</td>
+            <td>15 juillet 2024</td>
+            <td>
+              <a href="#" class="ext-link">En savoir plus</a> <br>
+              <a href="#" class="ext-link">Autre lien</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer-component></footer-component>
+
+  <script src="components/actu.js" type="text/javascript" defer></script>
+</body>
+</html>

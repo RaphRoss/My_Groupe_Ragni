@@ -158,3 +158,39 @@ main {
     margin-bottom: 40px;
     font-size: 1.5em;
 }
+
+/* Style pour l'icône d'épingle */
+.pin-icon {
+    color: #FF6347; /* Couleur de l'épingle */
+    margin-left: 10px;
+}
+
+/* Style pour @Ragni en bleu */
+.highlight {
+    color: #1E90FF; /* Couleur bleue pour @Ragni */
+    font-weight: bold;
+}
+
+/* Style pour #URGENT en rouge */
+.urgent-tag {
+    color: #FF0000; /* Couleur rouge pour #URGENT */
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* Style pour l'icône de like */
+.like-icon {
+    margin-top: 10px;
+}
+
+.like-icon i {
+    font-size: 18px;
+    color: #1E90FF; /* Couleur bleue pour le like */
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.like-icon i:hover {
+    transform: scale(1.2);
+    color: #FF6347; /* Changement de couleur au survol */
+}

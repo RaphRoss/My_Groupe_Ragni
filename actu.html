@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
   <link href="css/actu_styles.css" rel="stylesheet" type="text/css" />
   <script src="components/header.js" type="text/javascript" defer></script>
   <script src="components/footer.js" type="text/javascript" defer></script>
-  <title>Création d'Actualité</title>
+  <title>Gestion des Actualités</title>
 </head>
 <body>
   <!-- Header -->
@@ -16,100 +17,158 @@
 
   <!-- Main Content -->
   <main>
-    <section class="news-form-container">
-      <h2>Créer une nouvelle actualité</h2>
-      <form class="news-form" onsubmit="return handleSubmit(event)">
-        <div class="form-group">
-          <label for="news-title">Titre de l'actualité</label>
-          <input type="text" id="news-title" placeholder="Entrez le titre de l'actualité" required>
-        </div>
-
-        <div class="form-group">
-          <label for="news-content">Contenu de l'actualité</label>
-          <textarea id="news-content" placeholder="Entrez le contenu de l'actualité" rows="5" required></textarea>
-        </div>
-
-        <!-- Image Upload Section -->
-        <div class="form-group">
-          <label for="news-image">Sélectionner une image</label>
-          <input type="file" id="news-image" accept="image/*">
-          <div id="drop-area">ou glissez-déposez l'image ici</div>
-          <img id="preview-image" src="" alt="Aperçu de l'image" style="display: none;" />
-        </div>
-
-        <div class="form-group">
-          <label for="news-link">Lien pour "En savoir plus"</label>
-          <input type="text" id="news-link" placeholder="Entrez le lien (URL)" required>
-        </div>
-
-        <div class="form-group">
-          <label for="news-date">Date de publication</label>
-          <input type="date" id="news-date" required>
-        </div>
-
-        <button type="submit">Ajouter l'actualité</button>
-      </form>
+    <section class="news-table-container">
+      <h2>Actualités</h2>
+      <section class="news-header">
+        <input type="text" id="search-input" placeholder="Rechercher une actualité" />
+        <button id="new-article-button">Nouvelle Actualité</button>
+      </section>
+      <table id="news-table">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Titre</th>
+            <th>Résumé</th>
+            <th>Date de publication</th>
+            <th>Plus d'infos</th>
+            <th>Actions</th> <!-- Nouvelle colonne pour les actions -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="img/logo_Ragni.png" alt="Image actualité 1" style="width: 100px;"></td>
+            <td>Lancement de la nouvelle gamme de produits <i class="fas fa-thumbtack pin-icon"></i></td>
+            <td>Le <span class="highlight">@Groupe Ragni</span> dévoile une nouvelle gamme innovante de solutions d'éclairage urbain.</td>
+            <td>5 septembre 2024</td>
+            <td>
+              <a href="#" class="ext-link">En savoir plus</a> <br>
+              <a href="#" class="ext-link">Autre lien</a>
+            </td>
+            <td>
+              <button class="edit-button">Modifier</button>
+              <button class="delete-button">Supprimer</button>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="img/logo_Ragni.png" alt="Image actualité 2" style="width: 100px;"></td>
+            <td>Partenariat avec une entreprise internationale <span class="urgent-tag">#URGENT</span></td>
+            <td>Nous sommes fiers d'annoncer un partenariat stratégique avec un leader mondial de la technologie.</td>
+            <td>22 août 2024</td>
+            <td>
+              <a href="#" class="ext-link">En savoir plus</a> <br>
+              <a href="#" class="ext-link">Autre lien</a>
+            </td>
+            <td>
+              <button class="edit-button">Modifier</button>
+              <button class="delete-button">Supprimer</button>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="img/logo_Ragni.png" alt="Image actualité 3" style="width: 100px;"></td>
+            <td>Participation à la Conférence mondiale de l’éclairage</td>
+            <td>Le Groupe Ragni a participé à la conférence annuelle, présentant des innovations durables.</td>
+            <td>15 juillet 2024</td>
+            <td>
+              <a href="#" class="ext-link">En savoir plus</a> <br>
+              <a href="#" class="ext-link">Autre lien</a>
+            </td>
+            <td>
+              <button class="edit-button">Modifier</button>
+              <button class="delete-button">Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </section>
+
+  <!-- Section de création d'actualité (cachée par défaut) -->
+  <section class="news-form-container" id="news-form-container" style="display: none;">
+    <h2>Créer une nouvelle actualité</h2>
+    <form class="news-form" onsubmit="return handleSubmit(event)">
+      
+      <!-- Groupe de publication -->
+      <div class="form-group">
+        <label for="publication-group">Choisir le groupe de publication</label>
+        <select id="publication-group" onchange="handleGroupChange()" required>
+          <option value="">-- Sélectionnez un groupe --</option>
+          <option value="france">France</option>
+          <option value="export">Export</option>
+          <option value="interne">Interne</option>
+          <option value="entites">Entités</option>
+          <option value="tout">Tout le monde</option>
+        </select>
+      </div>
+
+      <!-- Sous-groupe Entités (caché par défaut) -->
+      <div class="form-group" id="entites-subgroup" style="display: none;">
+        <label for="entites-group">Choisir une entité</label>
+        <select id="entites-group">
+          <option value="">-- Sélectionnez une entité --</option>
+          <option value="ragni">Ragni</option>
+          <option value="seve">SEVE</option>
+          <option value="novea">NOVEA</option>
+          <option value="hess">HESS</option>
+          <option value="lec">LEC</option>
+          <option value="vulkan">Vulkan</option>
+        </select>
+      </div>
+
+      <!-- Titre de l'actualité -->
+      <div class="form-group">
+        <label for="news-title">Titre de l'actualité</label>
+        <input type="text" id="news-title" placeholder="Entrez le titre de l'actualité" required>
+      </div>
+
+      <!-- Résumé de l'actualité -->
+      <div class="form-group">
+        <label for="news-summary">Résumé de l'actualité</label>
+        <textarea id="news-summary" placeholder="Entrez un résumé de l'actualité" rows="3" required></textarea>
+      </div>
+
+      <!-- Contenu de l'actualité -->
+      <div class="form-group">
+        <label for="news-content">Contenu de l'actualité</label>
+        <textarea id="news-content" placeholder="Entrez le contenu de l'actualité" rows="5" required></textarea>
+      </div>
+
+      <!-- Image Upload Section -->
+      <div class="form-group">
+        <label for="news-image">Sélectionner une image</label>
+        <input type="file" id="news-image" accept="image/*">
+        <div id="drop-area">ou glissez-déposez l'image ici</div>
+        <img id="preview-image" src="" alt="Aperçu de l'image" style="display: none;" />
+      </div>
+
+      <!-- Lien externe -->
+      <div class="form-group">
+        <label for="news-link">Lien externe</label>
+        <input type="text" id="news-link" placeholder="Entrez le lien (URL)" required>
+      </div>
+
+      <!-- Date de publication -->
+      <div class="form-group">
+        <label for="news-date">Date de publication</label>
+        <input type="date" id="news-date" required>
+      </div>
+
+      <!-- Options Épingler / Urgent -->
+      <div class="form-group">
+        <label>
+          <input type="checkbox" id="news-pin"> Épingler
+        </label>
+        <label>
+          <input type="checkbox" id="news-urgent"> Urgent
+        </label>
+      </div>
+
+      <button type="submit">Ajouter l'actualité</button>
+    </form>
+  </section>
   </main>
 
   <!-- Footer -->
   <footer-component></footer-component>
 
-  <script>
-    // JavaScript pour la gestion de l'image drag & drop et aperçu
-    const dropArea = document.getElementById('drop-area');
-    const newsImage = document.getElementById('news-image');
-    const previewImage = document.getElementById('preview-image');
-
-    dropArea.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      dropArea.style.backgroundColor = '#f0fff0';
-    });
-
-    dropArea.addEventListener('dragleave', () => {
-      dropArea.style.backgroundColor = '#fff';
-    });
-
-    dropArea.addEventListener('drop', (e) => {
-      e.preventDefault();
-      const file = e.dataTransfer.files[0];
-      handleImage(file);
-    });
-
-    newsImage.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      handleImage(file);
-    });
-
-    function handleImage(file) {
-      if (file && file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          previewImage.src = e.target.result;
-          previewImage.style.display = 'block';
-        };
-        reader.readAsDataURL(file);
-      }
-    }
-
-    function handleSubmit(event) {
-      event.preventDefault(); // Empêche la soumission du formulaire par défaut
-      // Vérifie que tous les champs sont remplis
-      const title = document.getElementById('news-title').value;
-      const content = document.getElementById('news-content').value;
-      const link = document.getElementById('news-link').value;
-      const date = document.getElementById('news-date').value;
-      
-      if (title && content && link && date) {
-        alert('L\'actualité a été créée avec succès!');
-        // Ici tu peux ajouter du code pour envoyer les données à un serveur si nécessaire
-        // Pour l'exemple, le formulaire ne sera pas réellement soumis
-        // event.target.submit(); // Décommente ceci si tu veux soumettre réellement le formulaire
-      } else {
-        alert('Veuillez remplir tous les champs.');
-      }
-      return false; // Empêche le formulaire de se soumettre par défaut
-    }
-  </script>
+  <script src="components/actu.js" type="text/javascript" defer></script>
 </body>
 </html>

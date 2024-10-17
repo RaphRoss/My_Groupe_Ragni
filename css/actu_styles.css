@@ -1,107 +1,243 @@
-/* Style de base */
+/* Global styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
     margin: 0;
     padding: 0;
-    background-color: #fff;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-header-component, footer-component {
-    display: block;
 }
 
 main {
-    flex: 1;
     padding: 20px;
-    background-color: #fff;
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 20px;
     color: #333;
+    margin-bottom: 10px;
 }
 
-/* Formulaire d'ajout d'actualité */
-.news-form-container {
-    max-width: 600px;
-    margin: 0 auto;
+/* News Table */
+.news-table-container {
+    background-color: #fff;
+    border-radius: 8px;
     padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#search-input {
+    padding: 10px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#new-article-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#new-article-button:hover {
+    background-color: #0056b3;
+}
+
+/* Table styles */
+#news-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#news-table th, #news-table td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+#news-table th {
+    background-color: #f4f4f9;
+    color: #333;
+    font-weight: bold;
+}
+
+#news-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+#news-table img {
+    border-radius: 4px;
+}
+
+.edit-button, .delete-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.edit-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #218838;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Form section */
+.news-form-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .news-form .form-group {
     margin-bottom: 20px;
 }
 
+/* Styles pour les labels */
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
 .news-form label {
     display: block;
-    margin-bottom: 5px;
     font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.news-form input[type="text"],
-.news-form input[type="file"],
-.news-form input[type="date"],
+/* Styles pour les champs de texte et les textarea */
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #007bff; /* Couleur du bord lors du focus */
+  outline: none; /* Supprimer le contour par défaut */
+}
+
+/* Styles pour le sous-groupe des entités */
+#entites-subgroup {
+    margin-top: 10px; /* Espacement au-dessus du sous-groupe */
+}
+
+.form-group select {
+    appearance: none; /* Supprime l'apparence par défaut */
+    background-color: #ffffff; /* Couleur de fond */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABFklEQVR42mP8//8/A7gBlIWiK9oEAV8o4AOhyY5IT/AIDfBWqKyg4vAtYDXgXwAwYUCgSyL8AAk0x6JoRyycWQAAGVi5HYXIcAAAAAElFTkSuQmCC'); /* Icône de flèche */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Position de la flèche */
+    background-size: 12px; /* Taille de la flèche */
+  }
+
 .news-form textarea {
-    width: calc(100% - 20px); /* Réduction pour la marge */
-    padding: 10px;
-    margin-right: 10px; /* Ajout de la marge à droite */
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s;
+    resize: none;
 }
 
-.news-form input[type="text"]:focus,
-.news-form input[type="date"]:focus,
-.news-form textarea:focus {
-    border-color: #263C47;
-}
-
-.news-form button {
-    width: 100%;
-    padding: 15px;
-    background-color: #263C47;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.news-form button:hover {
-    background-color: #263C47;
-}
-
-/* Drag & Drop Image Upload */
 #drop-area {
-    margin-bottom: 15px;
+    border: 2px dashed #007bff;
     padding: 20px;
-    border: 2px dashed #263C47;
-    border-radius: 8px;
     text-align: center;
-    background-color: #fff;
-    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    border-radius: 5px;
     cursor: pointer;
 }
 
 #drop-area:hover {
-    background-color: #f0fff0;
-    border-color: #263C90;
+    background-color: #f0f8ff;
 }
 
 #preview-image {
     margin-top: 10px;
     max-width: 100%;
-    max-height: 200px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.news-form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.news-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Style pour l'icône d'épingle */
+.pin-icon {
+    color: #FF6347; /* Couleur de l'épingle */
+    margin-left: 10px;
+}
+
+/* Style pour @Ragni en bleu */
+.highlight {
+    color: #1E90FF; /* Couleur bleue pour @Ragni */
+    font-weight: bold;
+}
+
+/* Style pour #URGENT en rouge */
+.urgent-tag {
+    color: #FF0000; /* Couleur rouge pour #URGENT */
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* Style pour l'icône de like */
+.like-icon {
+    margin-top: 10px;
+}
+
+.like-icon i {
+    font-size: 18px;
+    color: #1E90FF; /* Couleur bleue pour le like */
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.like-icon i:hover {
+    transform: scale(1.2);
+    color: #FF6347; /* Changement de couleur au survol */
 }
